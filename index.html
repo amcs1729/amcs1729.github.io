@@ -129,7 +129,7 @@
     </div>
 
     <script>
-        // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST
+        // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST - NOW HUGELY EXPANDED
         const destinationsData = [
             {
                 id: 'hokkaido',
@@ -137,9 +137,9 @@
                 region: 'Hokkaido',
                 description: 'Japan\'s northernmost island, famous for its wild nature, world-class powder snow, vast flower fields, and incredible seafood.',
                 tags: ['Nature', 'Winter', 'Food', 'Onsen', 'Road Trip'],
-                liked: 'World-class skiing/snowboarding in Niseko and Furano. The Sapporo Snow Festival is magical (Feb). Stunning lavender (Jul/Aug) and flower fields in Furano. Incredible food: fresh seafood, miso ramen, soup curry, dairy. Less crowded and cooler in summer. Beautiful onsen (Noboribetsu).',
+                liked: 'World-class skiing/snowboarding in Niseko and Furano (Dec-Feb). The Sapporo Snow Festival is magical (Feb). Stunning lavender (Jul/Aug) and flower fields in Furano. Incredible food: fresh seafood, miso ramen, soup curry, dairy. Less crowded and cooler in summer. Beautiful onsen (Noboribetsu). Autumn colors in October are spectacular.',
                 disliked: 'The island is huge; a car is essential and you spend a lot of time traveling. Ski season requires booking 6+ months in advance. Sapporo can feel like just another city outside of its festival.',
-                months: ['January', 'February', 'July', 'August', 'September', 'October']
+                months: ['January', 'February', 'July', 'August', 'September', 'October', 'December']
             },
             {
                 id: 'kyushu',
@@ -147,19 +147,19 @@
                 region: 'Kyushu',
                 description: 'Japan\'s southern island, known for its volcanic landscapes, world-famous onsen, rich history, and vibrant food scenes.',
                 tags: ['Food', 'Onsen', 'History', 'Nature', 'Volcano'],
-                liked: 'Vibrant food scene in Fukuoka, especially the yatai (street stalls) and Hakata ramen. The "Hells of Beppu" onsen are unique (mud baths, steam baths). The history in Nagasaki (Peace Park) is moving. Beautiful nature and shrines (Dazaifu, Kushida). Less crowded than Honshu.',
-                disliked: 'Also a large island that requires a car or careful train planning (e.g., Nagasaki to Kagoshima is difficult). Mountain roads can have black ice in winter (Dec-Mar). Can be rushed if you try to see too much.',
-                months: ['January', 'April', 'May', 'July']
+                liked: 'Vibrant food scene in Fukuoka (yatai stalls). The "Hells of Beppu" onsen. The moving history in Nagasaki. Beautiful nature. Great autumn colors in November (e.g., Kurokawa Onsen). Mild winters.',
+                disliked: 'Also a large island that requires a car or careful train planning. Can be rushed if you try to see too much. Nagasaki to Kagoshima is a long trip.',
+                months: ['January', 'April', 'May', 'July', 'October', 'November']
             },
             {
                 id: 'shikoku',
                 name: 'Shikoku (Iya Valley, Matsuyama)',
                 region: 'Shikoku',
                 description: 'The smallest of Japan\'s main islands, offering a tranquil, off-the-beaten-path experience with deep nature, the 88 Temple Pilgrimage, and charming rural towns.',
-                tags: ['Nature', 'Spiritual', 'Culture', 'Road Trip', 'Hiking'],
-                liked: 'The "sleepy" and tranquil atmosphere. Stunning nature in the Iya Valley (vine bridge, onsen). Cycling the Shimanami Kaido. Ritsurin Gardens in Takamatsu. Dogo Onsen in Matsuyama. The spiritual 88 Temple Pilgrimage. Great local food like Katsuo Tataki (Kochi) and Udon (Kagawa).',
-                disliked: 'A rental car is considered essential; public transport is infrequent and limited. Shops close early. Not ideal for a short trip as it takes time to explore properly. Cities are not the main attraction.',
-                months: ['April', 'November']
+                tags: ['Nature', 'Spiritual', 'Culture', 'Road Trip', 'Hiking', 'Off-Beat'],
+                liked: 'The "sleepy" and tranquil atmosphere. Stunning nature in the Iya Valley, especially with autumn colors (late Oct/Nov). Cycling the Shimanami Kaido. Ritsurin Gardens in Takamatsu. Dogo Onsen in Matsuyama. The spiritual 88 Temple Pilgrimage.',
+                disliked: 'A rental car is considered essential; public transport is infrequent and limited. Shops close early. Not ideal for a short trip as it takes time to explore properly.',
+                months: ['April', 'May', 'September', 'October', 'November']
             },
             {
                 id: 'okinawa',
@@ -167,9 +167,149 @@
                 region: 'Okinawa',
                 description: 'A chain of subtropical islands with a distinct culture, beautiful beaches, world-class coral reefs, and a history as the independent Ryukyu Kingdom.',
                 tags: ['Beaches', 'Nature', 'Culture', 'Food', 'Snorkeling'],
-                liked: 'Completely distinct culture from mainland Japan. Stunning beaches and world-class snorkeling/diving (Kerama, Ishigaki). The Churaumi Aquarium (whale sharks). Unique food (Taco Rice). Hiking to castle ruins. Learning about Ryukyu history.',
-                disliked: 'A rental car is essential to explore the main island. Shuri Castle is still under reconstruction (after 2019 fire). Can be affected by typhoons (late summer). May be "overrated" for those used to other world-class beaches. Strict diving license rules.',
-                months: ['January', 'February', 'April', 'May', 'June', 'July', 'August', 'September', 'October']
+                liked: 'Completely distinct culture from mainland Japan. Stunning beaches and world-class snorkeling/diving (Kerama, Ishigaki). The Churaumi Aquarium. Unique food. Weather is still warm and pleasant in October/November.',
+                disliked: 'A rental car is essential on the main island. Shuri Castle is under reconstruction. Can be affected by typhoons (through Oct). May be "overrated" for those used to other world-class beaches.',
+                months: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
+            },
+            {
+                id: 'tohoku',
+                name: 'Tohoku (Sendai, Matsushima, Aomori)',
+                region: 'Tohoku',
+                description: 'A region of rugged nature, samurai history, and vibrant summer festivals, and incredible autumn colors.',
+                tags: ['Nature', 'Festivals', 'History', 'Food', 'Onsen', 'Off-Beat', 'Autumn'],
+                liked: 'Matsushima Bay (one of Japan\'s 3 most scenic views). Nebuta Festival in Aomori (Aug). Samurai district in Kakunodate. Amazing rice, sake, and fruit. Spectacular autumn foliage (koyo) throughout October and early November. Less crowded.',
+                disliked: 'Very cold in winter (Dec-Feb). Spread out, requires a car or good JR Pass planning. Less English spoken than in major tourist areas.',
+                months: ['April', 'May', 'August', 'October', 'November']
+            },
+            {
+                id: 'ginzan-onsen',
+                name: 'Ginzan Onsen',
+                region: 'Tohoku',
+                description: 'A stunningly preserved Taisho-era hot spring town, especially magical when covered in snow.',
+                tags: ['Onsen', 'History', 'Winter', 'Culture', 'Retro'],
+                liked: 'Feels like stepping back in time. The gas-lit streets are incredibly atmospheric, especially under snow (late Dec-Feb). Beautiful ryokan. Autumn colors in early November are also lovely.',
+                disliked: 'Extremely popular and books out months in advance. Very small (just one street). Difficult to access, especially in deep winter. Not much to do outside of the ryokan.',
+                months: ['January', 'February', 'November', 'December']
+            },
+            {
+                id: 'oirase-gorge',
+                name: 'Oirase Gorge & Lake Towada',
+                region: 'Tohoku',
+                description: 'A crystal-clear mountain stream flowing through a deep, mossy forest, famous for its autumn display.',
+                tags: ['Nature', 'Hiking', 'Autumn', 'Off-Beat'],
+                liked: 'Absolutely world-class autumn foliage, peaks in late October. The walking trail is easy and follows the stream. Very refreshing in summer. Mossy green forest is beautiful.',
+                disliked: 'Can be extremely crowded during peak foliage (late Oct). Trail is one-way for cars, creating traffic jams. Inaccessible in deep winter.',
+                months: ['June', 'July', 'August', 'September', 'October']
+            },
+            {
+                id: 'zao-onsen',
+                name: 'Zao Onsen',
+                region: 'Tohoku',
+                description: 'A famous ski resort and hot spring village known for its "Snow Monsters" (Juhyo) in winter.',
+                tags: ['Onsen', 'Winter', 'Skiing', 'Nature'],
+                liked: 'The "Snow Monsters" (trees caked in ice and snow) are surreal (peak Jan/Feb, start in Dec). Great skiing. Highly acidic, sulfuric onsen are very unique and relaxing.',
+                disliked: 'The Snow Monsters are not fully formed in December. Can be extremely cold and windy at the top. The strong sulfur smell is not for everyone.',
+                months: ['January', 'February', 'December']
+            },
+            {
+                id: 'kanazawa',
+                name: 'Kanazawa',
+                region: 'Chubu',
+                description: 'A beautifully preserved castle town, often called "Little Kyoto", known for art, crafts, and gardens.',
+                tags: ['Culture', 'History', 'Crafts', 'Food', 'Art', 'Gardens'],
+                liked: 'Kenrokuen Garden (one of Japan\'s top 3), especially with "yukitsuri" snow ropes (starting Nov/Dec). Preserved geisha and samurai districts. 21st Century Museum of Contemporary Art. Fresh seafood from the Sea of Japan (crab season starts in Nov).',
+                disliked: 'Weather can be very grey, wet, and rainy, especially in November and December. Noto Peninsula (nearby) was affected by a 2024 earthquake (check status).',
+                months: ['April', 'May', 'October', 'November', 'December']
+            },
+            {
+                id: 'takayama',
+                name: 'Takayama',
+                region: 'Chubu',
+                description: 'A historic mountain town in the Japan Alps with a stunningly preserved old town and morning markets.',
+                tags: ['History', 'Culture', 'Food', 'Festivals', 'Alps'],
+                liked: 'The preserved Sanmachi Suji (old town) is beautiful. The Autumn Festival (Oct 9-10) is one of Japan\'s best. Hida beef is incredible. Great base for exploring the Japan Alps.',
+                disliked: 'Extremely crowded during the festival. Gets very cold in November and December. Many shops in the old town close by 5 PM.',
+                months: ['April', 'May', 'August', 'September', 'October', 'November']
+            },
+            {
+                id: 'shirakawa-go',
+                name: 'Shirakawa-go & Gokayama',
+                region: 'Chubu',
+                description: 'UNESCO World Heritage villages with traditional "gassho-zukuri" (praying hands) farmhouses.',
+                tags: ['Culture', 'History', 'Winter', 'Nature', 'Off-Beat'],
+                liked: 'Magical when covered in snow (Dec-Feb). The winter illumination events are beautiful. Fascinating architecture. Gokayama is a quieter, more "authentic" alternative.',
+                disliked: 'Extremely crowded, especially during illuminations (requires reservations). Bus access is mandatory. Can feel like a tourist theme park during the day.',
+                months: ['January', 'February', 'May', 'October', 'November', 'December']
+            },
+            {
+                id: 'kiso-valley',
+                name: 'Kiso Valley (Magome & Tsumago)',
+                region: 'Chubu',
+                description: 'A preserved section of the old Nakasendo Trail, connecting historic "post towns" through the mountains.',
+                tags: ['History', 'Hiking', 'Nature', 'Culture', 'Off-Beat'],
+                liked: 'Hiking the 8km trail between Magome and Tsumago feels like walking in feudal Japan. Beautiful autumn colors in late October and November. The towns are charming and authentic.',
+                disliked: 'Luggage forwarding between the towns is essential (and closes in winter). Shops close very early (4-5 PM). Can be cold and icy on the trail in December.',
+                months: ['April', 'May', 'September', 'October', 'November']
+            },
+            {
+                id: 'kamikochi',
+                name: 'Kamikochi',
+                region: 'Chubu',
+                description: 'A pristine, high-altitude river valley in the Japan Alps, considered one of Japan\'s most beautiful natural scenes.',
+                tags: ['Nature', 'Hiking', 'Alps', 'Autumn'],
+                liked: 'Absolutely stunning, jaw-dropping alpine scenery. Crystal clear water. Great hiking. The autumn colors against the snow-dusted peaks in October are breathtaking.',
+                disliked: 'Only open from mid-April to mid-November. Closes for winter. Can be very crowded. Weather is unpredictable and very cold in October.',
+                months: ['May', 'June', 'July', 'August', 'September', 'October']
+            },
+            {
+                id: 'koyasan',
+                name: 'Koya-san (Mt. Koya)',
+                region: 'Kansai',
+                description: 'The sacred center of Shingon Buddhism, offering temple lodging (shukubo) and a mystical forest cemetery.',
+                tags: ['Spiritual', 'Nature', 'Culture', 'History', 'Hiking'],
+                liked: 'Staying in a temple (shukubo) is a unique experience (morning prayers, shojin ryori food). Okunoin Cemetery is mystical, especially on a night tour. Beautiful autumn colors in early November.',
+                disliked: 'Gets very cold from November onwards. Temple food (vegetarian Buddhist cuisine) is not for everyone. Requires multiple transfers (trains, cable car) to reach.',
+                months: ['April', 'May', 'September', 'October', 'November']
+            },
+            {
+                id: 'kinosaki-onsen',
+                name: 'Kinosaki Onsen',
+                region: 'Kansai',
+                description: 'A charming, traditional onsen town where visitors stroll in yukata and geta (wooden clogs) to visit 7 public baths.',
+                tags: ['Onsen', 'Culture', 'Food', 'Retro'],
+                liked: 'The atmosphere of "onsen-hopping" in a yukata is iconic. The town is built for it. Amazing Matsuba Gani (Snow Crab) season starts in November. Very relaxing.',
+                disliked: 'Can be crowded. The public onsen can be small. Not a lot of other activities besides bathing and eating. Crab is very expensive.',
+                months: ['January', 'February', 'March', 'November', 'December']
+            },
+            {
+                id: 'naoshima',
+                name: 'Naoshima & Setouchi Islands',
+                region: 'Chugoku/Shikoku',
+                description: 'A rural island transformed into a world-class center for contemporary art, museums, and architecture.',
+                tags: ['Art', 'Nature', 'Off-Beat', 'Culture', 'Architecture'],
+                liked: 'World-class art (Chichu Art Museum, Benesse House). The "art islands" concept is unique. Cycling around the island. Mild, pleasant weather in October and November. Less crowded than summer.',
+                disliked: 'Requires careful planning with ferries. Many museums are closed on Mondays. Expensive. Must book accommodation *far* in advance.',
+                months: ['March', 'April', 'May', 'September', 'October', 'November']
+            },
+            {
+                id: 'shimane',
+                name: 'Shimane (Matsue, Izumo)',
+                region: 'Chugoku',
+                description: 'A deeply historic and spiritual region, home to Japan\'s oldest shrine and a beautiful original castle.',
+                tags: ['History', 'Spiritual', 'Culture', 'Off-Beat', 'Gardens'],
+                liked: 'Izumo Taisha (Japan\'s oldest shrine), where all gods are said to meet in October (the "Month of the Gods"). Adachi Museum of Art (has the "perfect" garden). Matsue Castle (one of 12 original castles). Less tourism.',
+                disliked: 'Very remote and spread out. Requires a car or lots of time on local trains. Not much nightlife. Less English spoken.',
+                months: ['April', 'May', 'October', 'November']
+            },
+            {
+                id: 'kurokawa-onsen',
+                name: 'Kurokawa Onsen',
+                region: 'Kyushu',
+                description: 'A magical, traditional onsen town hidden in the mountains, famous for its outdoor baths (rotenburo).',
+                tags: ['Onsen', 'Nature', 'Culture', 'Retro', 'Off-Beat'],
+                liked: 'The "onsen-hopping" pass (tegata) lets you visit 3 different ryokan baths. No large concrete hotels. Very traditional feel. Amazing in cool weather (Oct, Nov) and with snow (Dec-Feb).',
+                disliked: 'Very difficult to access without a car. Books out far in advance. Not much to do besides onsen. Very quiet.',
+                months: ['January', 'February', 'March', 'April', 'May', 'October', 'November', 'December']
             }
         ];
         // END OF SYNTHESIZED DATA
@@ -182,7 +322,7 @@
             let activeInterestFilter = 'all';
             let activeMonthFilter = 'all';
 
-            const allTags = [...new Set(destinationsData.flatMap(d => d.tags))];
+            const allTags = [...new Set(destinationsData.flatMap(d => d.tags))].sort();
             const allMonths = [...new Set(destinationsData.flatMap(d => d.months))].sort((a, b) => {
                 const monthOrder = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 return monthOrder.indexOf(a) - monthOrder.indexOf(b);
@@ -212,6 +352,9 @@
 
                 destinationsList.innerHTML = '';
                 if (filteredData.length > 0) {
+                    // Sort by name for consistent order
+                    filteredData.sort((a, b) => a.name.localeCompare(b.name));
+                    
                     filteredData.forEach(dest => {
                         const card = document.createElement('div');
                         card.className = 'card bg-white p-4 rounded-lg border-2 border-transparent cursor-pointer shadow-sm';
@@ -245,11 +388,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-green-50 p-4 rounded-lg border border-green-200">
                             <h4 class="font-bold text-lg text-green-800 mb-2">👍 What Travelers Liked</h4>
-                            <p class="text-green-700 leading-relaxed">${dest.liked}</p>
+                            <p class="text-green-700 leading-relaxed whitespace-pre-line">${dest.liked}</p>
                         </div>
                         <div class="bg-red-50 p-4 rounded-lg border border-red-200">
                             <h4 class="font-bold text-lg text-red-800 mb-2">👎 What Travelers Disliked</h4>
-                            <p class="text-red-700 leading-relaxed">${dest.disliked}</p>
+                            <p class="text-red-700 leading-relaxed whitespace-pre-line">${dest.disliked}</p>
                         </div>
                     </div>
                     
@@ -260,12 +403,18 @@
                 `;
                 
                 document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-                document.querySelector(`.card[data-id="${id}"]`).classList.add('active');
+                const activeCard = document.querySelector(`.card[data-id="${id}"]`);
+                if (activeCard) {
+                    activeCard.classList.add('active');
+                }
             }
             
             function renderChart() {
                 const ctx = document.getElementById('insights-chart').getContext('2d');
-                const tagCounts = allTags.reduce((acc, tag) => {
+                // Regenerate allTags here to ensure it's from the full new dataset
+                const allTagsForChart = [...new Set(destinationsData.flatMap(d => d.tags))];
+                
+                const tagCounts = allTagsForChart.reduce((acc, tag) => {
                     acc[tag] = destinationsData.filter(d => d.tags.includes(tag)).length;
                     return acc;
                 }, {});
