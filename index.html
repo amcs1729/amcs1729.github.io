@@ -1,380 +1,483 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-<script data-ad-client="ca-pub-8875906463193120" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Travel Explorer: Beyond the Golden Route</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f2;
+            color: #334155;
+        }
+       .card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+       .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+       .card.active {
+            border-color: #f59e0b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+       .filter-btn {
+            transition: background-color 0.2s, color 0.2s;
+        }
+       .filter-btn.active {
+            background-color: #ca8a04;
+            color: white;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+       .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+           .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
-
-<body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </div>
-    <!-- End #mobile-menu-toggle -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
-                <a href="#education">Education</a>
-            </li>
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </header>
-    <!-- End header -->
-
-    <div id="lead">
-        <div id="lead-content">
-            <h2>Arnab Mukherjee</h2>
-            <h3>Interested in Software Engineering</h3>
-            <a href="https://drive.google.com/file/d/1zYAeli5WDAYMT1BSFI2VnlKxSpmpL26j/view?usp=sharing" class="btn-rounded-white">Download Resume</a>
-        </div>
-        <!-- End #lead-content -->
-
-        <div id="lead-overlay"></div>
-
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-                </div>
-                <div class="col-md-8">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End #about -->
-
-     <div id="experience" class="background-alt">
-        <h2 class="heading">Experience</h2>
-        <div id="experience-timeline">
-            <div data-date="Jan 2023 – Present">
-                <h3>Google</h3>
-                <h4>Software engineer intern</h4>
-
-            </div>
-
-            <div data-date="June 2022 – September 2022">
-                <h3>Facebook (Meta)</h3>
-                <h4>Network engineer intern</h4>
-
-            </div>
-        </div>
-    </div>
-	
-	
-	
-	
-
-    <div id="education">
-        <h2 class="heading">Education</h2>
-        <div class="education-block">
-            <h3>National Institute of Technology,Durgapur</h3>
-            <span class="education-date">2019 - 2023(Expected)</span>
-            <h4>Bachelor of Technology in Computer Science</h4>
-            <p>
-		    8.54 CGPA (Upto 7th Sem)
-            </p>
-	 </div>
+<body class="antialiased">
+    <div class="container mx-auto p-4 md:p-8">
         
-        <!-- End .education-block -->
-	    
-	    
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800">Japan Travel Explorer</h1>
+            <p class="text-slate-600 mt-2 text-lg">Discover destinations beyond Tokyo, Kyoto, and Osaka based on traveler reviews.</p>
+        </header>
 
-        <div class="education-block">
-            <h3>Vidyasagar Shishu Niketan</h3>
-            <span class="education-date">2019</span>
-            <h4>ISC</h4>
-            <p>
-		    90.6% (Science) 
-            </p>
-	 </div>  
-		  
-        <div class="education-block">
-            <h3>Vidyasagar Shishu Niketan</h3>
-            <span class="education-date">2017</span>
-            <h4>ICSE</h4>
-            <p>
-		    93.6%  
-            </p>
-        </div>
-	    </div>
+        <main>
+            <section id="controls" class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="md:col-span-2">
+                        <h3 class="text-md font-semibold mb-3 text-slate-700">Filter by Interest:</h3>
+                        <div id="interest-filters" class="flex flex-wrap gap-2">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-md font-semibold mb-3 text-slate-700">Filter by Travel Month:</h3>
+                        <select id="month-filter" class="w-full p-2 border border-slate-300 rounded-md bg-slate-50 focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+                            <option value="all">Any Month</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1">
+                    <h2 class="text-xl font-bold mb-4 text-slate-800">Destinations</h2>
+                    <div id="destinations-list" class="space-y-4 max-h-[70vh] overflow-y-auto pr-2">
+                        <p class="text-slate-500">Loading destinations...</p>
+                    </div>
+                </div>
+                <div id="details-panel" class="lg:col-span-2 bg-white rounded-lg shadow-md p-6 md:p-8 min-h-[50vh]">
+                     <div class="text-center text-slate-500 pt-16">
+                        <p class="text-2xl">🏞️</p>
+                        <p class="mt-2">Select a destination on the left to see details.</p>
+                     </div>
+                </div>
+            </div>
 
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-    <div id="projects" class="background-alt">
-       
-	    <h2 class="heading">Projects</h2>
+            <section id="insights" class="mt-12 bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-slate-800 text-center mb-2">What Are Travelers Looking For?</h2>
+                <p class="text-center text-slate-600 mb-6">This chart shows the popularity of different travel interests among the reviewed destinations, highlighting common themes like nature and history.</p>
+                <div class="chart-container">
+                    <canvas id="insights-chart"></canvas>
+                </div>
+            </section>
+
+        </main>
         
-	    <div class="container">
-            
-		    <div class="row">
+        <footer class="text-center mt-12 text-slate-500 text-sm">
+            <p>Data synthesized from public travel forums and discussions. For planning purposes only.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const destinationsData =,
+                liked: 'Exceptional soup curry and sushi. The Sapporo Beer Museum is a popular stop. The city has a relaxed atmosphere, and the Snow Festival in February is a major draw.',
+                disliked: 'Some tourist attractions like Mt. Moiwa are considered overrated. The city can feel underwhelming for sightseeing alone. Accommodation prices triple during major events.',
+                months: ['January', 'February', 'March', 'June', 'July', 'November']
+            },
+            {
+                id: 'hakodate',
+                name: 'Hakodate',
+                region: 'Hokkaido',
+                description: 'A port city with unique foreign-influenced architecture, a famous night view, and a bustling morning market for seafood lovers.',
+                tags:,
+                liked: 'Stunning night view from Mt. Hakodate. Unique architecture gives it a distinct character. Fresh seafood at the Morning Market, especially the "catch your own squid" experience.',
+                disliked: 'Long travel time (4 hours each way from Sapporo) makes a day trip difficult. Unreliable public transport in winter. Some market food is considered a "tourist rip off."',
+                months:
+            },
+            {
+                id: 'otaru',
+                name: 'Otaru',
+                region: 'Hokkaido',
+                description: 'A picturesque harbor city near Sapporo, famous for its preserved canal, glass shops, and music box museum.',
+                tags:,
+                liked: 'The Otaru Canal is beautiful, especially during the Snow Light Path Festival in February. Strolling Sakaimachi Street with its glass workshops and sweet shops is enjoyable.',
+                disliked: 'Can become boring after a few hours as it is very tourist-focused in one area. Often crowded. Reports of poor service at some establishments.',
+                months: ['February']
+            },
+            {
+                id: 'biei-furano',
+                name: 'Biei & Furano',
+                region: 'Hokkaido',
+                description: 'Neighboring towns celebrated for their rolling pastoral landscapes, vibrant summer flower fields, and pristine winter snowscapes.',
+                tags:,
+                liked: 'Vast, colorful flower fields in summer, especially lavender at Farm Tomita. The ethereal Blue Pond (Aoike). Breathtaking snow-covered landscapes in winter. Scenic cycling routes.',
+                disliked: 'Highly weather-dependent; attractions can be underwhelming outside of peak season. Can be extremely crowded with tour buses, especially Farm Tomita.',
+                months:
+            },
+            {
+                id: 'sendai-matsushima',
+                name: 'Sendai & Matsushima Bay',
+                region: 'Tohoku',
+                description: 'A resilient city known for its culinary specialties, serving as a hub to explore the scenic Matsushima Bay, one of Japan\'s Three Great Views.',
+                tags:,
+                liked: 'Excellent gyutan (beef tongue) and zunda (edamame paste). Matsushima Bay offers scenic boat cruises among hundreds of pine-clad islands. Historic temples like Godaido Hall.',
+                disliked: 'Sendai city itself has fewer major attractions. Matsushima can feel like a "tourist circus" and some find the scenery overrated. Post-tsunami reconstruction is noticeable.',
+                months:
+            },
+            {
+                id: 'nikko',
+                name: 'Nikko',
+                region: 'Kanto',
+                description: 'A UNESCO World Heritage site in the mountains, known for its opulent shrines, temples, and stunning natural landscapes like lakes and waterfalls.',
+                tags:,
+                liked: 'Lavishly decorated Toshogu Shrine is a masterpiece. The blend of world-class historical sites with dramatic nature like Lake Chuzenji and Kegon Falls is a major draw.',
+                disliked: 'Can be very crowded, especially at Toshogu Shrine. A day trip often feels rushed; an overnight stay is highly recommended to fully appreciate the area.',
+                months:
+            },
+            {
+                id: 'hakone',
+                name: 'Hakone',
+                region: 'Kanto',
+                description: 'A famous mountain resort town known for its hot springs (onsen), numerous art museums, and dramatic views of Mount Fuji.',
+                tags: ['Onsen', 'Nature', 'Art', 'Views'],
+                liked: 'The scenic "Hakone Loop" transport circuit is a unique experience. The area is an "art-lover\'s dream" with many excellent museums. Views of the active volcanic valley of Owakudani.',
+                disliked: 'Can feel exhausting and rushed as a day trip. Some find it overrated and touristy. Can be expensive, and popular spots are very crowded.',
+                months: ['Fall']
+            },
+            {
+                id: 'fuji-five-lakes',
+                name: 'Fuji Five Lakes',
+                region: 'Chubu',
+                description: 'A region at the northern base of Mount Fuji offering spectacular and iconic views of the mountain, especially from Lake Kawaguchiko.',
+                tags:,
+                liked: 'Breathtaking views of Mount Fuji, including the "Reverse Fuji" reflection on the lake. The Chureito Pagoda offers one of the most iconic photo opportunities in Japan.',
+                disliked: 'Views are highly weather-dependent as Mt. Fuji is often obscured by clouds. Popular spots are extremely crowded. Public transport can be infrequent.',
+                months:
+            },
+            {
+                id: 'kanazawa',
+                name: 'Kanazawa',
+                region: 'Chubu',
+                description: 'Often called "Little Kyoto," this city boasts one of Japan\'s most beautiful landscape gardens, well-preserved samurai and geisha districts, and a rich arts and crafts scene.',
+                tags: ['History', 'Culture', 'Art', 'Gardens'],
+                liked: 'Beautifully preserved historical areas like Higashi Chaya geisha district are less crowded than Kyoto. Kenrokuen Garden is stunning. Excellent fresh seafood at Omicho Market and highly regarded contemporary art museums.',
+                disliked: 'Can be hot and humid in summer. Some visitors have noted issues with tourism etiquette like littering and photography. The 2024 earthquake impacted tourism, though structural damage was minimal.',
+                months:
+            },
+            {
+                id: 'takayama',
+                name: 'Takayama',
+                region: 'Chubu',
+                description: 'A city in the mountainous Hida region with a beautifully preserved old town of Edo-period wooden merchants\' houses, sake breweries, and morning markets.',
+                tags:,
+                liked: 'The old town (Sanmachi Suji) feels like stepping back in time. Hida Folk Village is stunningly beautiful. A hub for tasting high-quality Hida beef and local sake.',
+                disliked: 'The journey to get there is a bit of a trek. Finding dinner can be difficult without reservations. The town is small and can be fully seen in a day or two. Nearby Shirakawa-go is often overrun with tour buses.',
+                months:
+            },
+            {
+                id: 'nara',
+                name: 'Nara',
+                region: 'Kansai',
+                description: 'Japan\'s first permanent capital, famous for its vast park where over a thousand friendly (and sometimes pushy) deer roam freely among ancient temples.',
+                tags:,
+                liked: 'The awe-inspiring Todai-ji Temple with its massive bronze Buddha statue. The unique experience of interacting with bowing deer. The park has a beautiful and peaceful atmosphere.',
+                disliked: 'The deer can be aggressive and pushy when seeking food, with reports of nipping and headbutting. The feeding experience can feel artificial to some.',
+                months:
+            },
+            {
+                id: 'koyasan',
+                name: 'Koyasan (Mount Koya)',
+                region: 'Kansai',
+                description: 'A secluded temple town offering one of Japan\'s most profound spiritual experiences: an overnight stay in a Buddhist temple (shukubo).',
+                tags:,
+                liked: 'The immersive temple stay (shukubo) with morning prayers and vegan Buddhist cuisine (shojin ryori). The magical and surreal atmosphere of Okunoin Cemetery, especially on a guided night tour.',
+                disliked: 'Temple lodging is basic, can be cold, and is expensive. Guests must adhere to a strict, early-morning schedule. Accessing the mountain with large luggage is difficult.',
+                months: ['August']
+            },
+            {
+                id: 'hiroshima-miyajima',
+                name: 'Hiroshima & Miyajima',
+                region: 'Chugoku',
+                description: 'A modern city that has risen from its tragic past, offering poignant lessons in peace, alongside the stunning Itsukushima Shrine on nearby Miyajima Island.',
+                tags:,
+                liked: 'The Peace Memorial Museum and Park are a profound and essential experience. Miyajima Island is a universal favorite, especially when staying overnight to avoid day-tripper crowds. The "floating" torii gate is iconic.',
+                disliked: 'The Peace Museum is emotionally taxing and can cast a somber mood over the day. Miyajima is extremely crowded during the day, with long waits for the ropeway. Shops on the island close early.',
+                months: ['February', 'March', 'June', 'October']
+            },
+            {
+                id: 'onomichi-shimanami',
+                name: 'Onomichi & Shimanami Kaido',
+                region: 'Chugoku',
+                description: 'A charming port town and the starting point for the spectacular 70km Shimanami Kaido cycling route across islands and bridges.',
+                tags:,
+                liked: 'Onomichi is an underrated town with a nostalgic atmosphere and a scenic Temple Walk. The Shimanami Kaido cycling route offers spectacular views of the Seto Inland Sea.',
+                disliked: 'The cycling route is physically demanding with steep inclines. Rental bikes can be basic. Logistics for the one-way trip can be tricky, especially on weekdays.',
+                months: ['Autumn']
+            },
+            {
+                id: 'naoshima',
+                name: 'Art Islands (Naoshima)',
+                region: 'Chugoku',
+                description: 'An island in the Seto Inland Sea transformed into a world-renowned contemporary art hub, featuring museums by Tadao Ando and installations scattered across the landscape.',
+                tags: ['Art', 'Culture', 'Architecture', 'Unique Experience'],
+                liked: 'An unparalleled experience for art and architecture lovers. The seamless integration of art with nature is a highlight. Renting an electric bicycle is a fantastic way to explore.',
+                disliked: 'Logistically complex and expensive to visit. Requires advance booking for museums like Chichu. Many sites are closed on Mondays. Can be very crowded with tourists.',
+                months:
+            },
+            {
+                id: 'iya-valley',
+                name: 'Iya Valley',
+                region: 'Shikoku',
+                description: 'One of Japan\'s "three hidden regions," a remote and mysterious valley known for its untouched natural beauty and thrilling vine bridges.',
+                tags:,
+                liked: 'Raw, untouched natural beauty that feels a world away from modern cities. Crossing the swaying vine bridges (kazurabashi) is a thrilling and memorable experience.',
+                disliked: 'Extremely difficult to access without a rental car due to very limited public transport. The roads are very narrow, single-lane, and challenging to drive.',
+                months:
+            },
+            {
+                id: 'fukuoka',
+                name: 'Fukuoka',
+                region: 'Kyushu',
+                description: 'A vibrant, modern city on the island of Kyushu, celebrated for its laid-back atmosphere, ancient temples, and rich food culture, especially the open-air yatai stalls.',
+                tags: ['Culinary', 'Urban', 'Coastal'],
+                liked: 'The food scene is phenomenal and affordable, particularly the Hakata ramen from the yatai stalls. It has a relaxed, friendly vibe compared to larger cities. Compact and walkable. Good access to other parts of Kyushu.',
+                disliked: 'Some find the city "boring" for daytime sightseeing with fewer major landmarks compared to other cities. Fukuoka Castle ruins can be disappointing.',
+                months:
+            },
+            {
+                id: 'yakushima',
+                name: 'Yakushima',
+                region: 'Kyushu',
+                description: 'A remote, subtropical UNESCO island famous for its ancient cedar forests, which inspired the film *Princess Mononoke*, and challenging hiking trails.',
+                tags:,
+                liked: 'Mystical, moss-covered ancient forests are a paradise for hikers. Trekking to see giant cedar trees (yakusugi) is a profoundly rewarding and spiritual experience.',
+                disliked: 'A rental car is essential for getting around. The weather is extremely rainy and unpredictable, which can lead to the closure of roads and trails.',
+                months: ['June']
+            },
+            {
+                id: 'okinawa',
+                name: 'Okinawa',
+                region: 'Okinawa',
+                description: 'A chain of subtropical islands with a distinct culture, known for its beautiful beaches, coral reefs, unique cuisine, and historical sites from the Ryukyu Kingdom.',
+                tags:,
+                liked: 'Unique and relaxed "Okinawan vibe" different from mainland Japan. World-class diving and snorkeling, especially in the Kerama Islands. The Churaumi Aquarium is a major attraction.',
+                disliked: 'A rental car is almost essential to explore the main island effectively as public transport is very limited. Lacks the traditional temples and shrines of mainland Japan.',
+                months: ['June', 'Fall']
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const interestFiltersContainer = document.getElementById('interest-filters');
+            const monthFilter = document.getElementById('month-filter');
+            const destinationsList = document.getElementById('destinations-list');
+            const detailsPanel = document.getElementById('details-panel');
+            let activeInterestFilter = 'all';
+            let activeMonthFilter = 'all';
+
+            const allTags =.sort();
+            const allMonths =.sort((a, b) => {
+                const monthOrder =;
+                return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+            });
+
+            function setupControls() {
+                interestFiltersContainer.innerHTML = `<button class="filter-btn active text-sm font-semibold py-1 px-3 bg-slate-200 text-slate-700 rounded-full" data-filter="all">All Interests</button>`;
+                allTags.forEach(tag => {
+                    interestFiltersContainer.innerHTML += `<button class="filter-btn text-sm font-semibold py-1 px-3 bg-slate-200 text-slate-700 rounded-full" data-filter="${tag}">${tag}</button>`;
+                });
                 
-			    <div class="project shadow-large">
-                    
-				    <div class="project-image">
-                        
-					    <img src="images/project.jpg" />
-                    
-				    </div>
-                    
-				    <!-- End .project-image -->
-                    
-				    <div class="project-info">
-                        
-					    <h3>Distributed Hash Table</h3>
-                        
-					    <p>
-			    
-					    <ul>
-				    
-						    <li> Implemented a Highly Scaleable P2P Distributed Hash Table.</li>
-				    
-						    <li> Used techniques to make it tolerant to peer churns.</li>
-				    
-						    <li> Used Chord as underlying algorithm.</li>
-			  
-						    </p>
-                        
-					    <a href="https://www.github.com/amcs1729/Distributed-Hash-Table">View Project</a>
-                    
-				    </div>
-                    <!-- End .project-info -->
+                allMonths.forEach(month => {
+                    monthFilter.innerHTML += `<option value="${month}">${month}</option>`;
+                });
+            }
+
+            function renderDestinations() {
+                let filteredData = destinationsData;
+
+                if (activeInterestFilter!== 'all') {
+                    filteredData = filteredData.filter(d => d.tags.includes(activeInterestFilter));
+                }
                 
-			    </div>
-                <!-- End .project -->
+                if (activeMonthFilter!== 'all') {
+                    filteredData = filteredData.filter(d => d.months.includes(activeMonthFilter));
+                }
 
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Image to Paragraph generation using Visual Attention</h3>
-                        <p>
-                            <ul>
-				    <li>Developed a model that could generate a relevant paragraph by using an image as context.</li>
-				    <li>Used Attention Model to understand different parts of the image.</li>
-				    <li>Combined it with a self trained Language Model to generate a meaningful paragraph.</li>
-                        </p>
-                        <a href="https://github.com/amcs1729/Image_to_Paragraph">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-			 
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Low Light Image Enhancement</h3>
-                        <p>
-                            <ul>
-				    <li>Implemented a model that achieved >30 PSNR when trying to produce a bright and enhanced image from a low light image.</li>
-				    <li>Used a multi branch fusion model to apply enhancement via multiple subnets.</li>
-				    <li>Used a combined loss function that gave more emphasis to dark regions to reduce noise while enhancing the image.</li>
-                        </p>
-                        <a href="https://www.github.com/amcs1729/Attention-Guided-Low-light-Image-Enhancement">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			    
-			      <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Predicting CPU usage in Cloud VMs </h3>
-                        <p>
-                            <ul>
-				    <li>Developed a model to preemptively calculate future CPU utilization with <1.1% error.</li>
-				    <li>Compared the performance of LSTM, GRU and Independent RNN models.</li>
-                        </p>
-                        <a href="https://www.github.com/amcs1729/Predicting-cloud-CPU-usage-on-Azure-data">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-			    
-			    
-			    
-			
-			    
-			    
-			    
-			    
-			    
-			    			    
-			    
-			    
-			    
-			    
-			    
-			      <div class="project shadow-large">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <!-- End .project-image -->
-                    <div class="project-info">
-                        <h3>Message dependent Image Steganography </h3>
-                        <p>
-                            <ul>
-				    <li>Implemented an advanced steganographic technique that is an improvement over traditional methods.</li>
-				    <li>Used payload to determine embedding positions on the image.</li>
-                        </p>
-                        <a href="https://www.github.com/amcs1729/steganography">View Project</a>
-                    </div>
-                    <!-- End .project-info -->
-                </div>
-			    
-			    
-			    
-			    
-                <!-- End .project -->
-            </div>
-        </div>
-    </div>
-    <!-- End #projects -->
+                destinationsList.innerHTML = '';
+                if (filteredData.length > 0) {
+                    filteredData.forEach(dest => {
+                        const card = document.createElement('div');
+                        card.className = 'card bg-white p-4 rounded-lg border-2 border-transparent cursor-pointer shadow-sm';
+                        card.dataset.id = dest.id;
+                        card.innerHTML = `
+                            <h3 class="font-bold text-lg text-slate-800">${dest.name}</h3>
+                            <p class="text-sm text-slate-500">${dest.region}</p>
+                            <div class="flex flex-wrap gap-1 mt-2">
+                                ${dest.tags.map(tag => `<span class="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-full">${tag}</span>`).join('')}
+                            </div>
+                        `;
+                        destinationsList.appendChild(card);
+                    });
+                } else {
+                    destinationsList.innerHTML = `<div class="text-center p-8 bg-slate-50 rounded-lg">
+                        <p class="font-semibold text-slate-700">No destinations match your criteria.</p>
+                        <p class="text-sm text-slate-500 mt-1">Try selecting different filters.</p>
+                    </div>`;
+                }
+            }
 
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <ul>
-	<li>Java</li>
-            <li>Python</li>
-		<li>C</li>
-		<li>C++</li>
-		<li>Typescript</li>
-		<li>Springboot</li>
-		<li>React JS</li>
-		<li>Node JS</li>
+            function renderDetails(id) {
+                const dest = destinationsData.find(d => d.id === id);
+                if (!dest) return;
+
+                detailsPanel.innerHTML = `
+                    <h2 class="text-3xl font-bold text-slate-800">${dest.name}</h2>
+                    <p class="text-md text-slate-500 font-medium mb-4">${dest.region}</p>
+                    <p class="text-slate-600 mb-6">${dest.description}</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                            <h4 class="font-bold text-lg text-green-800 mb-2">👍 What Travelers Liked</h4>
+                            <p class="text-green-700 leading-relaxed">${dest.liked}</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h4 class="font-bold text-lg text-red-800 mb-2">👎 Potential Dislikes & Challenges</h4>
+                            <p class="text-red-700 leading-relaxed">${dest.disliked}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">📅 Reported Travel Months</h4>
+                        <p class="text-blue-700">${dest.months.join(', ')}</p>
+                    </div>
+                `;
+                
+                document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+                document.querySelector(`.card[data-id="${id}"]`).classList.add('active');
+            }
             
-	    
-		    <li>Flask</li>
-		    <li>JavaScript</li>
-		    <li>HTML</li>
-		    <li>CSS</li>
-		    <li>Bootstrap</li>
-	    
-	    
-		    <li>Databases</li>
-		    <li>TensorFlow</li>
-		    <li>NLTK</li>
-		    <li>Scikit-Learn</li>
-		    <li>Socket.IO</li>
-		    <li>GNU Octave</li>
-		    <li>Git</li>
-		
-		
-		
-	    </ul>
-    </div>
-    <!-- End #skills -->
+            function renderChart() {
+                const ctx = document.getElementById('insights-chart').getContext('2d');
+                const tagCounts = allTags.reduce((acc, tag) => {
+                    acc[tag] = destinationsData.filter(d => d.tags.includes(tag)).length;
+                    return acc;
+                }, {});
 
-    <div id="contact">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/amcs1729@gmail.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
+                const sortedTags = Object.entries(tagCounts).sort(([,a],[,b]) => b-a);
+                const labels = sortedTags.map(item => item);
+                const data = sortedTags.map(item => item[1]);
+                
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets:
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: '#e2e8f0'
+                                },
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleFont: { size: 14, weight: 'bold' },
+                                bodyFont: { size: 12 },
+                                padding: 10,
+                                cornerRadius: 4,
+                            }
+                        }
+                    }
+                });
+            }
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; 2020 Arnab Mukherjee
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-                <div class="col-sm-5 social">
-                    <ul>
-                        <li>
-                            <a href="https://github.com/" target="www.github.com/amcs1729"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </li>
-                        
-                        <li>
-                            <a href="https://www.linkedin.com/in/arnab-mukherjee-a95279187/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        
-                  
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
+            interestFiltersContainer.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') {
+                    activeInterestFilter = e.target.dataset.filter;
+                    document.querySelectorAll('#interest-filters.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderDestinations();
+                }
+            });
+            
+            monthFilter.addEventListener('change', (e) => {
+                activeMonthFilter = e.target.value;
+                renderDestinations();
+            });
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
+            destinationsList.addEventListener('click', (e) => {
+                const card = e.target.closest('.card');
+                if (card) {
+                    renderDetails(card.dataset.id);
+                }
+            });
+
+            setupControls();
+            renderDestinations();
+            renderChart();
+            if(destinationsData.length > 0) {
+              renderDetails(destinationsData.id);
+            }
+        });
+    </script>
 </body>
-
 </html>
