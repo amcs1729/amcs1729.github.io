@@ -4,33 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japan Travel Explorer: Beyond the Golden Route</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals (Stone, Amber, Slate) -->
+    <!-- Application Structure Plan: A dashboard-style explorer. The main interface features a central control panel with filters for travel interests (Nature, History, Food, etc.) and travel month. These controls dynamically update a list of destination cards. Clicking a card populates a detailed view panel. This structure was chosen to empower users to discover destinations based on their personal preferences and travel plans, making the data more actionable and explorable than a static list. A summary chart provides high-level insights into the types of experiences available. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: List of destinations with traveler likes/dislikes. Goal: Exploration & Discovery. Presentation: Interactive card list + detail view. Interaction: Click to select, filter by interest/month. Justification: Allows users to quickly scan options and dive deep into relevant ones. Method: HTML/CSS/JS.
+        - Report Info: Categories of travel experiences (nature, onsen, etc.). Goal: Inform at a glance. Presentation: Horizontal Bar Chart. Interaction: Static view of tag popularity. Justification: Provides a quick, quantitative overview of what travelers value in these alternative destinations. Library: Chart.js.
+        - Report Info: Traveler sentiment. Goal: Inform decision-making. Presentation: Clearly separated "Liked" 👍 and "Disliked" 👎 sections. Interaction: Static text display. Justification: Direct and unambiguous presentation of qualitative feedback. Method: HTML/CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f7f2;
+            background-color: #f8f7f2; /* A warm, off-white background */
             color: #334155;
         }
-       .card {
+        .card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-       .card:hover {
+        .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
-       .card.active {
+        .card.active {
             border-color: #f59e0b;
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
-       .filter-btn {
+        .filter-btn {
             transition: background-color 0.2s, color 0.2s;
         }
-       .filter-btn.active {
+        .filter-btn.active {
             background-color: #ca8a04;
             color: white;
         }
@@ -48,7 +56,7 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #64748b;
         }
-       .chart-container {
+        .chart-container {
             position: relative;
             width: 100%;
             max-width: 800px;
@@ -58,7 +66,7 @@
             max-height: 400px;
         }
         @media (max-width: 768px) {
-           .chart-container {
+            .chart-container {
                 height: 300px;
             }
         }
@@ -106,7 +114,7 @@
 
             <section id="insights" class="mt-12 bg-white rounded-lg shadow-md p-6 md:p-8">
                 <h2 class="text-2xl font-bold text-slate-800 text-center mb-2">What Are Travelers Looking For?</h2>
-                <p class="text-center text-slate-600 mb-6">This chart shows the popularity of different travel interests among the reviewed destinations, highlighting common themes like nature and history.</p>
+                <p class="text-center text-slate-600 mb-6">This chart shows the popularity of different travel interests among the reviewed destinations, highlighting common themes like nature and onsen experiences.</p>
                 <div class="chart-container">
                     <canvas id="insights-chart"></canvas>
                 </div>
@@ -121,192 +129,50 @@
     </div>
 
     <script>
-        const destinationsData =,
-                liked: 'Exceptional soup curry and sushi. The Sapporo Beer Museum is a popular stop. The city has a relaxed atmosphere, and the Snow Festival in February is a major draw.',
-                disliked: 'Some tourist attractions like Mt. Moiwa are considered overrated. The city can feel underwhelming for sightseeing alone. Accommodation prices triple during major events.',
-                months: ['January', 'February', 'March', 'June', 'July', 'November']
-            },
+        // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST
+        const destinationsData = [
             {
-                id: 'hakodate',
-                name: 'Hakodate',
+                id: 'hokkaido',
+                name: 'Hokkaido (Sapporo, Furano, Niseko)',
                 region: 'Hokkaido',
-                description: 'A port city with unique foreign-influenced architecture, a famous night view, and a bustling morning market for seafood lovers.',
-                tags:,
-                liked: 'Stunning night view from Mt. Hakodate. Unique architecture gives it a distinct character. Fresh seafood at the Morning Market, especially the "catch your own squid" experience.',
-                disliked: 'Long travel time (4 hours each way from Sapporo) makes a day trip difficult. Unreliable public transport in winter. Some market food is considered a "tourist rip off."',
-                months:
+                description: 'Japan\'s northernmost island, famous for its wild nature, world-class powder snow, vast flower fields, and incredible seafood.',
+                tags: ['Nature', 'Winter', 'Food', 'Onsen', 'Road Trip'],
+                liked: 'World-class skiing/snowboarding in Niseko and Furano. The Sapporo Snow Festival is magical (Feb). Stunning lavender (Jul/Aug) and flower fields in Furano. Incredible food: fresh seafood, miso ramen, soup curry, dairy. Less crowded and cooler in summer. Beautiful onsen (Noboribetsu).',
+                disliked: 'The island is huge; a car is essential and you spend a lot of time traveling. Ski season requires booking 6+ months in advance. Sapporo can feel like just another city outside of its festival.',
+                months: ['January', 'February', 'July', 'August', 'September', 'October']
             },
             {
-                id: 'otaru',
-                name: 'Otaru',
-                region: 'Hokkaido',
-                description: 'A picturesque harbor city near Sapporo, famous for its preserved canal, glass shops, and music box museum.',
-                tags:,
-                liked: 'The Otaru Canal is beautiful, especially during the Snow Light Path Festival in February. Strolling Sakaimachi Street with its glass workshops and sweet shops is enjoyable.',
-                disliked: 'Can become boring after a few hours as it is very tourist-focused in one area. Often crowded. Reports of poor service at some establishments.',
-                months: ['February']
+                id: 'kyushu',
+                name: 'Kyushu (Fukuoka, Nagasaki, Beppu)',
+                region: 'Kyushu',
+                description: 'Japan\'s southern island, known for its volcanic landscapes, world-famous onsen, rich history, and vibrant food scenes.',
+                tags: ['Food', 'Onsen', 'History', 'Nature', 'Volcano'],
+                liked: 'Vibrant food scene in Fukuoka, especially the yatai (street stalls) and Hakata ramen. The "Hells of Beppu" onsen are unique (mud baths, steam baths). The history in Nagasaki (Peace Park) is moving. Beautiful nature and shrines (Dazaifu, Kushida). Less crowded than Honshu.',
+                disliked: 'Also a large island that requires a car or careful train planning (e.g., Nagasaki to Kagoshima is difficult). Mountain roads can have black ice in winter (Dec-Mar). Can be rushed if you try to see too much.',
+                months: ['January', 'April', 'May', 'July']
             },
             {
-                id: 'biei-furano',
-                name: 'Biei & Furano',
-                region: 'Hokkaido',
-                description: 'Neighboring towns celebrated for their rolling pastoral landscapes, vibrant summer flower fields, and pristine winter snowscapes.',
-                tags:,
-                liked: 'Vast, colorful flower fields in summer, especially lavender at Farm Tomita. The ethereal Blue Pond (Aoike). Breathtaking snow-covered landscapes in winter. Scenic cycling routes.',
-                disliked: 'Highly weather-dependent; attractions can be underwhelming outside of peak season. Can be extremely crowded with tour buses, especially Farm Tomita.',
-                months:
-            },
-            {
-                id: 'sendai-matsushima',
-                name: 'Sendai & Matsushima Bay',
-                region: 'Tohoku',
-                description: 'A resilient city known for its culinary specialties, serving as a hub to explore the scenic Matsushima Bay, one of Japan\'s Three Great Views.',
-                tags:,
-                liked: 'Excellent gyutan (beef tongue) and zunda (edamame paste). Matsushima Bay offers scenic boat cruises among hundreds of pine-clad islands. Historic temples like Godaido Hall.',
-                disliked: 'Sendai city itself has fewer major attractions. Matsushima can feel like a "tourist circus" and some find the scenery overrated. Post-tsunami reconstruction is noticeable.',
-                months:
-            },
-            {
-                id: 'nikko',
-                name: 'Nikko',
-                region: 'Kanto',
-                description: 'A UNESCO World Heritage site in the mountains, known for its opulent shrines, temples, and stunning natural landscapes like lakes and waterfalls.',
-                tags:,
-                liked: 'Lavishly decorated Toshogu Shrine is a masterpiece. The blend of world-class historical sites with dramatic nature like Lake Chuzenji and Kegon Falls is a major draw.',
-                disliked: 'Can be very crowded, especially at Toshogu Shrine. A day trip often feels rushed; an overnight stay is highly recommended to fully appreciate the area.',
-                months:
-            },
-            {
-                id: 'hakone',
-                name: 'Hakone',
-                region: 'Kanto',
-                description: 'A famous mountain resort town known for its hot springs (onsen), numerous art museums, and dramatic views of Mount Fuji.',
-                tags: ['Onsen', 'Nature', 'Art', 'Views'],
-                liked: 'The scenic "Hakone Loop" transport circuit is a unique experience. The area is an "art-lover\'s dream" with many excellent museums. Views of the active volcanic valley of Owakudani.',
-                disliked: 'Can feel exhausting and rushed as a day trip. Some find it overrated and touristy. Can be expensive, and popular spots are very crowded.',
-                months: ['Fall']
-            },
-            {
-                id: 'fuji-five-lakes',
-                name: 'Fuji Five Lakes',
-                region: 'Chubu',
-                description: 'A region at the northern base of Mount Fuji offering spectacular and iconic views of the mountain, especially from Lake Kawaguchiko.',
-                tags:,
-                liked: 'Breathtaking views of Mount Fuji, including the "Reverse Fuji" reflection on the lake. The Chureito Pagoda offers one of the most iconic photo opportunities in Japan.',
-                disliked: 'Views are highly weather-dependent as Mt. Fuji is often obscured by clouds. Popular spots are extremely crowded. Public transport can be infrequent.',
-                months:
-            },
-            {
-                id: 'kanazawa',
-                name: 'Kanazawa',
-                region: 'Chubu',
-                description: 'Often called "Little Kyoto," this city boasts one of Japan\'s most beautiful landscape gardens, well-preserved samurai and geisha districts, and a rich arts and crafts scene.',
-                tags: ['History', 'Culture', 'Art', 'Gardens'],
-                liked: 'Beautifully preserved historical areas like Higashi Chaya geisha district are less crowded than Kyoto. Kenrokuen Garden is stunning. Excellent fresh seafood at Omicho Market and highly regarded contemporary art museums.',
-                disliked: 'Can be hot and humid in summer. Some visitors have noted issues with tourism etiquette like littering and photography. The 2024 earthquake impacted tourism, though structural damage was minimal.',
-                months:
-            },
-            {
-                id: 'takayama',
-                name: 'Takayama',
-                region: 'Chubu',
-                description: 'A city in the mountainous Hida region with a beautifully preserved old town of Edo-period wooden merchants\' houses, sake breweries, and morning markets.',
-                tags:,
-                liked: 'The old town (Sanmachi Suji) feels like stepping back in time. Hida Folk Village is stunningly beautiful. A hub for tasting high-quality Hida beef and local sake.',
-                disliked: 'The journey to get there is a bit of a trek. Finding dinner can be difficult without reservations. The town is small and can be fully seen in a day or two. Nearby Shirakawa-go is often overrun with tour buses.',
-                months:
-            },
-            {
-                id: 'nara',
-                name: 'Nara',
-                region: 'Kansai',
-                description: 'Japan\'s first permanent capital, famous for its vast park where over a thousand friendly (and sometimes pushy) deer roam freely among ancient temples.',
-                tags:,
-                liked: 'The awe-inspiring Todai-ji Temple with its massive bronze Buddha statue. The unique experience of interacting with bowing deer. The park has a beautiful and peaceful atmosphere.',
-                disliked: 'The deer can be aggressive and pushy when seeking food, with reports of nipping and headbutting. The feeding experience can feel artificial to some.',
-                months:
-            },
-            {
-                id: 'koyasan',
-                name: 'Koyasan (Mount Koya)',
-                region: 'Kansai',
-                description: 'A secluded temple town offering one of Japan\'s most profound spiritual experiences: an overnight stay in a Buddhist temple (shukubo).',
-                tags:,
-                liked: 'The immersive temple stay (shukubo) with morning prayers and vegan Buddhist cuisine (shojin ryori). The magical and surreal atmosphere of Okunoin Cemetery, especially on a guided night tour.',
-                disliked: 'Temple lodging is basic, can be cold, and is expensive. Guests must adhere to a strict, early-morning schedule. Accessing the mountain with large luggage is difficult.',
-                months: ['August']
-            },
-            {
-                id: 'hiroshima-miyajima',
-                name: 'Hiroshima & Miyajima',
-                region: 'Chugoku',
-                description: 'A modern city that has risen from its tragic past, offering poignant lessons in peace, alongside the stunning Itsukushima Shrine on nearby Miyajima Island.',
-                tags:,
-                liked: 'The Peace Memorial Museum and Park are a profound and essential experience. Miyajima Island is a universal favorite, especially when staying overnight to avoid day-tripper crowds. The "floating" torii gate is iconic.',
-                disliked: 'The Peace Museum is emotionally taxing and can cast a somber mood over the day. Miyajima is extremely crowded during the day, with long waits for the ropeway. Shops on the island close early.',
-                months: ['February', 'March', 'June', 'October']
-            },
-            {
-                id: 'onomichi-shimanami',
-                name: 'Onomichi & Shimanami Kaido',
-                region: 'Chugoku',
-                description: 'A charming port town and the starting point for the spectacular 70km Shimanami Kaido cycling route across islands and bridges.',
-                tags:,
-                liked: 'Onomichi is an underrated town with a nostalgic atmosphere and a scenic Temple Walk. The Shimanami Kaido cycling route offers spectacular views of the Seto Inland Sea.',
-                disliked: 'The cycling route is physically demanding with steep inclines. Rental bikes can be basic. Logistics for the one-way trip can be tricky, especially on weekdays.',
-                months: ['Autumn']
-            },
-            {
-                id: 'naoshima',
-                name: 'Art Islands (Naoshima)',
-                region: 'Chugoku',
-                description: 'An island in the Seto Inland Sea transformed into a world-renowned contemporary art hub, featuring museums by Tadao Ando and installations scattered across the landscape.',
-                tags: ['Art', 'Culture', 'Architecture', 'Unique Experience'],
-                liked: 'An unparalleled experience for art and architecture lovers. The seamless integration of art with nature is a highlight. Renting an electric bicycle is a fantastic way to explore.',
-                disliked: 'Logistically complex and expensive to visit. Requires advance booking for museums like Chichu. Many sites are closed on Mondays. Can be very crowded with tourists.',
-                months:
-            },
-            {
-                id: 'iya-valley',
-                name: 'Iya Valley',
+                id: 'shikoku',
+                name: 'Shikoku (Iya Valley, Matsuyama)',
                 region: 'Shikoku',
-                description: 'One of Japan\'s "three hidden regions," a remote and mysterious valley known for its untouched natural beauty and thrilling vine bridges.',
-                tags:,
-                liked: 'Raw, untouched natural beauty that feels a world away from modern cities. Crossing the swaying vine bridges (kazurabashi) is a thrilling and memorable experience.',
-                disliked: 'Extremely difficult to access without a rental car due to very limited public transport. The roads are very narrow, single-lane, and challenging to drive.',
-                months:
-            },
-            {
-                id: 'fukuoka',
-                name: 'Fukuoka',
-                region: 'Kyushu',
-                description: 'A vibrant, modern city on the island of Kyushu, celebrated for its laid-back atmosphere, ancient temples, and rich food culture, especially the open-air yatai stalls.',
-                tags: ['Culinary', 'Urban', 'Coastal'],
-                liked: 'The food scene is phenomenal and affordable, particularly the Hakata ramen from the yatai stalls. It has a relaxed, friendly vibe compared to larger cities. Compact and walkable. Good access to other parts of Kyushu.',
-                disliked: 'Some find the city "boring" for daytime sightseeing with fewer major landmarks compared to other cities. Fukuoka Castle ruins can be disappointing.',
-                months:
-            },
-            {
-                id: 'yakushima',
-                name: 'Yakushima',
-                region: 'Kyushu',
-                description: 'A remote, subtropical UNESCO island famous for its ancient cedar forests, which inspired the film *Princess Mononoke*, and challenging hiking trails.',
-                tags:,
-                liked: 'Mystical, moss-covered ancient forests are a paradise for hikers. Trekking to see giant cedar trees (yakusugi) is a profoundly rewarding and spiritual experience.',
-                disliked: 'A rental car is essential for getting around. The weather is extremely rainy and unpredictable, which can lead to the closure of roads and trails.',
-                months: ['June']
+                description: 'The smallest of Japan\'s main islands, offering a tranquil, off-the-beaten-path experience with deep nature, the 88 Temple Pilgrimage, and charming rural towns.',
+                tags: ['Nature', 'Spiritual', 'Culture', 'Road Trip', 'Hiking'],
+                liked: 'The "sleepy" and tranquil atmosphere. Stunning nature in the Iya Valley (vine bridge, onsen). Cycling the Shimanami Kaido. Ritsurin Gardens in Takamatsu. Dogo Onsen in Matsuyama. The spiritual 88 Temple Pilgrimage. Great local food like Katsuo Tataki (Kochi) and Udon (Kagawa).',
+                disliked: 'A rental car is considered essential; public transport is infrequent and limited. Shops close early. Not ideal for a short trip as it takes time to explore properly. Cities are not the main attraction.',
+                months: ['April', 'November']
             },
             {
                 id: 'okinawa',
-                name: 'Okinawa',
+                name: 'Okinawa & Yaeyama Islands',
                 region: 'Okinawa',
-                description: 'A chain of subtropical islands with a distinct culture, known for its beautiful beaches, coral reefs, unique cuisine, and historical sites from the Ryukyu Kingdom.',
-                tags:,
-                liked: 'Unique and relaxed "Okinawan vibe" different from mainland Japan. World-class diving and snorkeling, especially in the Kerama Islands. The Churaumi Aquarium is a major attraction.',
-                disliked: 'A rental car is almost essential to explore the main island effectively as public transport is very limited. Lacks the traditional temples and shrines of mainland Japan.',
-                months: ['June', 'Fall']
+                description: 'A chain of subtropical islands with a distinct culture, beautiful beaches, world-class coral reefs, and a history as the independent Ryukyu Kingdom.',
+                tags: ['Beaches', 'Nature', 'Culture', 'Food', 'Snorkeling'],
+                liked: 'Completely distinct culture from mainland Japan. Stunning beaches and world-class snorkeling/diving (Kerama, Ishigaki). The Churaumi Aquarium (whale sharks). Unique food (Taco Rice). Hiking to castle ruins. Learning about Ryukyu history.',
+                disliked: 'A rental car is essential to explore the main island. Shuri Castle is still under reconstruction (after 2019 fire). Can be affected by typhoons (late summer). May be "overrated" for those used to other world-class beaches. Strict diving license rules.',
+                months: ['January', 'February', 'April', 'May', 'June', 'July', 'August', 'September', 'October']
             }
         ];
+        // END OF SYNTHESIZED DATA
 
         document.addEventListener('DOMContentLoaded', () => {
             const interestFiltersContainer = document.getElementById('interest-filters');
@@ -316,9 +182,9 @@
             let activeInterestFilter = 'all';
             let activeMonthFilter = 'all';
 
-            const allTags =.sort();
-            const allMonths =.sort((a, b) => {
-                const monthOrder =;
+            const allTags = [...new Set(destinationsData.flatMap(d => d.tags))];
+            const allMonths = [...new Set(destinationsData.flatMap(d => d.months))].sort((a, b) => {
+                const monthOrder = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 return monthOrder.indexOf(a) - monthOrder.indexOf(b);
             });
 
@@ -336,11 +202,11 @@
             function renderDestinations() {
                 let filteredData = destinationsData;
 
-                if (activeInterestFilter!== 'all') {
+                if (activeInterestFilter !== 'all') {
                     filteredData = filteredData.filter(d => d.tags.includes(activeInterestFilter));
                 }
                 
-                if (activeMonthFilter!== 'all') {
+                if (activeMonthFilter !== 'all') {
                     filteredData = filteredData.filter(d => d.months.includes(activeMonthFilter));
                 }
 
@@ -382,13 +248,13 @@
                             <p class="text-green-700 leading-relaxed">${dest.liked}</p>
                         </div>
                         <div class="bg-red-50 p-4 rounded-lg border border-red-200">
-                            <h4 class="font-bold text-lg text-red-800 mb-2">👎 Potential Dislikes & Challenges</h4>
+                            <h4 class="font-bold text-lg text-red-800 mb-2">👎 What Travelers Disliked</h4>
                             <p class="text-red-700 leading-relaxed">${dest.disliked}</p>
                         </div>
                     </div>
                     
                     <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
-                        <h4 class="font-bold text-lg text-blue-800 mb-2">📅 Reported Travel Months</h4>
+                        <h4 class="font-bold text-lg text-blue-800 mb-2">📅 Recommended Travel Months</h4>
                         <p class="text-blue-700">${dest.months.join(', ')}</p>
                     </div>
                 `;
@@ -405,14 +271,20 @@
                 }, {});
 
                 const sortedTags = Object.entries(tagCounts).sort(([,a],[,b]) => b-a);
-                const labels = sortedTags.map(item => item);
+                const labels = sortedTags.map(item => item[0]);
                 const data = sortedTags.map(item => item[1]);
                 
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: labels,
-                        datasets:
+                        datasets: [{
+                            label: 'Number of Destinations',
+                            data: data,
+                            backgroundColor: 'rgba(202, 138, 4, 0.6)',
+                            borderColor: 'rgba(202, 138, 4, 1)',
+                            borderWidth: 1
+                        }]
                     },
                     options: {
                         indexAxis: 'y',
@@ -425,7 +297,7 @@
                                     color: '#e2e8f0'
                                 },
                                 ticks: {
-                                    stepSize: 1
+                                    stepSize: 1 // Ensure x-axis ticks are whole numbers
                                 }
                             },
                             y: {
@@ -453,7 +325,7 @@
             interestFiltersContainer.addEventListener('click', (e) => {
                 if (e.target.tagName === 'BUTTON') {
                     activeInterestFilter = e.target.dataset.filter;
-                    document.querySelectorAll('#interest-filters.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('#interest-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
                     e.target.classList.add('active');
                     renderDestinations();
                 }
@@ -471,11 +343,13 @@
                 }
             });
 
+            // Initial Setup
             setupControls();
             renderDestinations();
             renderChart();
+            // Automatically select the first destination if data exists
             if(destinationsData.length > 0) {
-              renderDetails(destinationsData.id);
+              renderDetails(destinationsData[0].id);
             }
         });
     </script>
