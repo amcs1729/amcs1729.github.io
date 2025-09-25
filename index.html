@@ -129,8 +129,848 @@
     </div>
 
     <script>
-        // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST - NOW HUGELY EXPANDED
+        // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST - NOW HUGELY EXPANDED AND MERGED
         const destinationsData = [
+            {
+                "id": "tohoku-sendai-matsushima-aomori",
+                "name": "Tohoku (Sendai, Matsushima, Aomori)",
+                "region": "Tohoku",
+                "description": "Northern Japan's vast region offering dramatic winter landscapes, frozen waterfalls, and exceptional autumn colors.",
+                "tags": ["Winter", "Autumn", "Nature", "Onsen", "Snow", "Off-Beat", "Culture"],
+                "liked": "Spectacular winter phenomena like frozen waterfalls at Oirase Gorge and deep blue Lake Towada in snow. Excellent autumn foliage from mid-October. Fewer international tourists. World-class snow monsters at Zao and authentic onsen towns like Ginzan.",
+                "disliked": "Extremely cold winters with heavy snowfall that can disrupt travel. Limited English signage and services. Some attractions close during winter months. Travel times can be long between destinations.",
+                "months": ["October", "November", "December", "January", "February"]
+            },
+            {
+                "id": "ginzan-onsen",
+                "name": "Ginzan Onsen (Yamagata)",
+                "region": "Tohoku",
+                "description": "A fairy-tale hot spring village with Taisho-era architecture and gas-lit streets.",
+                "tags": ["Onsen", "Winter", "Retro", "Culture", "Snow", "Off-Beat", "History"],
+                "liked": "Magical winter atmosphere with snow-covered ryokan and gas lamps creating a Spirited Away-like setting. Excellent therapeutic hot springs. Perfect for couples and photography. Evening illuminations are enchanting.",
+                "disliked": "Extremely popular with Japanese tourists, especially weekends. Very expensive accommodation that books up months in advance. Limited dining options outside hotels. Can be crowded despite remote location.",
+                "months": ["December", "January", "February", "March"]
+            },
+            {
+                "id": "zao-onsen",
+                "name": "Zao Onsen (Yamagata/Miyagi)",
+                "region": "Tohoku",
+                "description": "Famous ski resort and onsen town known for 'snow monsters' - frost-covered trees creating monster-like shapes.",
+                "tags": ["Skiing", "Winter", "Onsen", "Snow", "Nature", "Unique"],
+                "liked": "Incredible snow monsters (juhyo) from December to February. World-class skiing and snowboarding. Strong sulfuric hot springs great for skin. Spectacular winter landscapes and ropeway views.",
+                "disliked": "Very cold temperatures and harsh weather conditions. Snow monsters best viewed via ropeway which can close due to weather. Limited English services. Can be expensive during peak ski season.",
+                "months": ["December", "January", "February", "March"]
+            },
+            {
+                "id": "oirase-gorge-towada",
+                "name": "Oirase Gorge & Lake Towada (Aomori)",
+                "region": "Tohoku",
+                "description": "A pristine gorge with waterfalls and streams flowing from Japan's largest caldera lake.",
+                "tags": ["Nature", "Autumn", "Winter", "Hiking", "Photography", "Off-Beat"],
+                "liked": "Outstanding autumn colors in late October. Frozen waterfalls in winter create surreal ice sculptures. 14km hiking trail along the stream. Lake Towada's deep blue waters contrast beautifully with snow. Relatively uncrowded.",
+                "disliked": "Extremely cold in winter with icy conditions. Some hiking trails close in winter. Limited accommodation nearby. Public transport can be infrequent, rental car recommended.",
+                "months": ["October", "November", "December", "January"]
+            },
+            {
+                "id": "nyuto-onsen",
+                "name": "Nyuto Onsen (Akita)",
+                "region": "Tohoku",
+                "description": "Seven secluded hot spring inns scattered through ancient beech forests.",
+                "tags": ["Onsen", "Winter", "Nature", "Off-Beat", "Snow", "Traditional"],
+                "liked": "Seven different onsen with unique mineral compositions. Fairytale winter setting deep in forest. Famous Tsurunoyu with milky blue waters. Onsen-hopping shuttle between facilities. Incredibly peaceful and authentic.",
+                "disliked": "Very remote location difficult to reach without a car. Accommodation books up fast. Limited dining options. Can be isolating if you don't speak Japanese. Harsh winter weather.",
+                "months": ["November", "December", "January", "February", "March"]
+            },
+            {
+                "id": "yamadera",
+                "name": "Yamadera (Yamagata)",
+                "region": "Tohoku",
+                "description": "Ancient mountain temple complex reached by climbing 1,015 stone steps.",
+                "tags": ["History", "Winter", "Culture", "Hiking", "Snow", "Spiritual"],
+                "liked": "Spectacular snow-covered temple buildings in winter create monochromatic landscape. Famous for inspiring haiku poetry. Panoramic views of countryside from summit. Easily accessible from JR Yamadera Station.",
+                "disliked": "Temple buildings closed in winter though grounds remain open. Climbing 1,015 steps can be treacherous when icy. Limited facilities at the top. Can be crowded during autumn foliage season.",
+                "months": ["October", "November", "December", "January", "February"]
+            },
+            {
+                "id": "hakkoda-mountains",
+                "name": "Hakkoda Mountains (Aomori)",
+                "region": "Tohoku",
+                "description": "Volcanic mountain range famous for pristine beech forests and early autumn colors.",
+                "tags": ["Nature", "Autumn", "Hiking", "Ropeway", "Photography", "Off-Beat"],
+                "liked": "Japan's earliest autumn colors starting mid-September. Pristine beech forests in fiery reds and golds. Hakkoda Ropeway provides aerial views above treeline. Excellent hiking trails with mountain huts.",
+                "disliked": "Weather can be unpredictable with sudden changes. Hiking trails can be challenging. Limited English information. Ropeway may close due to weather conditions. Very cold even in autumn.",
+                "months": ["September", "October", "November"]
+            },
+            {
+                "id": "daisetsuzan-national-park",
+                "name": "Daisetsuzan National Park (Hokkaido)",
+                "region": "Hokkaido",
+                "description": "Japan's largest national park featuring the earliest autumn colors and pristine wilderness.",
+                "tags": ["Nature", "Autumn", "Hiking", "Photography", "Off-Beat", "Wildlife"],
+                "liked": "Japan's very first autumn colors from mid-September. Asahidake Ropeway offers spectacular mountain views. Diverse alpine plants and wildlife. Excellent hiking trails including Mt. Asahidake. Sounkyo Gorge is stunning.",
+                "disliked": "Weather can be harsh and unpredictable. Some trails require mountaineering experience. Limited accommodation options. Access can be challenging without a car. Very short hiking season.",
+                "months": ["September", "October"]
+            },
+            {
+                "id": "jozankei-onsen",
+                "name": "Jozankei Onsen (Hokkaido)",
+                "region": "Hokkaido",
+                "description": "Hot spring resort town near Sapporo surrounded by dramatic autumn foliage.",
+                "tags": ["Onsen", "Autumn", "Nature", "Winter", "Photography", "Accessible"],
+                "liked": "Spectacular autumn colors reflecting in Toyohira River. Easy access from Sapporo (45 minutes). Beautiful canyon views from Jozankei Bridge. Hot springs surrounded by golden and crimson trees. Good hotel options.",
+                "disliked": "Can be crowded with day-trippers from Sapporo. Some hotels are dated. Limited dining options outside hotels. Colors peak for only 2-3 weeks. Can be expensive during peak foliage.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "noboribetsu-onsen",
+                "name": "Noboribetsu Onsen (Hokkaido)",
+                "region": "Hokkaido",
+                "description": "Premier hot spring resort famous for Hell Valley and diverse mineral waters.",
+                "tags": ["Onsen", "Autumn", "Winter", "Nature", "Unique", "Accessible"],
+                "liked": "Nine different types of mineral waters. Hell Valley (Jigokudani) with steaming vents and sulfur landscape is otherworldly. Great autumn colors hiking to Onyuama Pond. Excellent ryokan accommodations.",
+                "disliked": "Can be very touristy and commercialized. Hell Valley can smell strongly of sulfur. Limited English at some establishments. Expensive accommodation during peak seasons.",
+                "months": ["October", "November", "December", "January", "February"]
+            },
+            {
+                "id": "shiretoko-peninsula",
+                "name": "Shiretoko Peninsula (Hokkaido)",
+                "region": "Hokkaido",
+                "description": "UNESCO World Heritage site with pristine wilderness and incredible autumn colors.",
+                "tags": ["Nature", "Autumn", "Wildlife", "Off-Beat", "UNESCO", "Photography"],
+                "liked": "Outstanding autumn colors at Shiretoko Five Lakes. Brown bears and wildlife viewing opportunities. Pristine wilderness with dramatic coastline. UNESCO World Heritage protection maintains authenticity.",
+                "disliked": "Very remote location requiring significant travel time. Limited accommodation and dining options. Some areas require guided tours only. Weather can be harsh and unpredictable. Short autumn season.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "lake-akan",
+                "name": "Lake Akan (Hokkaido)",
+                "region": "Hokkaido",
+                "description": "Caldera lake famous for rare marimo algae balls and Ainu culture.",
+                "tags": ["Nature", "Culture", "Autumn", "Off-Beat", "Onsen", "Indigenous"],
+                "liked": "Unique marimo algae balls found nowhere else. Rich Ainu indigenous culture and performances. Beautiful autumn reflections on the lake. Akan Kohan Onsen with lake views. Less crowded than other Hokkaido destinations.",
+                "disliked": "Limited English signage and services. Ainu cultural experiences can feel commercialized. Weather can be unpredictable. Limited dining options. Public transport access is challenging.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "kurashiki-bikan",
+                "name": "Kurashiki Bikan Historical Quarter (Okayama)",
+                "region": "Chugoku",
+                "description": "Beautifully preserved canal town with willow-lined waterways and traditional architecture.",
+                "tags": ["History", "Culture", "Autumn", "Photography", "Off-Beat", "Traditional"],
+                "liked": "Venice-like canals with traditional boats and willow trees. Excellent museums including Ohara Museum with Western art. Beautifully preserved Edo-period merchant buildings. Autumn colors reflect nicely in canals.",
+                "disliked": "Can get crowded during weekends and holidays. Limited to a fairly small area for sightseeing. Some museums can be expensive. Limited English at local restaurants.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "onomichi",
+                "name": "Onomichi (Hiroshima)",
+                "region": "Chugoku",
+                "description": "Hillside port town famous for cats, temples, and the Shimanami Kaido cycling route.",
+                "tags": ["Cycling", "History", "Culture", "Autumn", "Off-Beat", "Cats"],
+                "liked": "Famous Cat Alley with stone cat statues and real cats. 2.5km temple walk through 25 temples. Starting point of scenic Shimanami Kaido cycling route. Panoramic views from Senkoji Park. Unique Onomichi ramen.",
+                "disliked": "Very hilly town requires lots of walking uphill. Limited accommodation options. Can be touristy during cycling season. Some temple paths can be steep and challenging.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "tottori-sand-dunes",
+                "name": "Tottori Sand Dunes (Tottori)",
+                "region": "Chugoku",
+                "description": "Japan's largest sand dunes creating a desert-like landscape by the Sea of Japan.",
+                "tags": ["Nature", "Unique", "Photography", "Adventure", "Off-Beat", "Desert"],
+                "liked": "Unique desert landscape rare in Japan. Camel rides and sand boarding activities. Beautiful sunsets over the Sea of Japan. Sand Museum with incredible sand sculptures. Illuminations in December create magical atmosphere.",
+                "disliked": "Can be extremely windy and sandy conditions uncomfortable. Limited shade or shelter. Activities may be cancelled due to weather. Not much else to see in immediate area.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "matsue-izumo",
+                "name": "Matsue & Izumo (Shimane)",
+                "region": "Chugoku",
+                "description": "Historic castle town and ancient Shinto shrine in the mythical Izumo region.",
+                "tags": ["History", "Culture", "Spiritual", "Autumn", "Off-Beat", "Traditional"],
+                "liked": "One of Japan's few original castles. Izumo Taisha is one of Japan's most important Shinto shrines. Beautiful autumn colors around castle moat. Rich mythology and legends. Fewer foreign tourists.",
+                "disliked": "Somewhat spread out requiring transportation between sites. Limited English information at some locations. Weather can be unpredictable near Sea of Japan. Limited nightlife and dining options.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "okayama-korakuen",
+                "name": "Okayama Korakuen Garden (Okayama)",
+                "region": "Chugoku",
+                "description": "One of Japan's three most beautiful gardens with spectacular autumn maple groves.",
+                "tags": ["Gardens", "Autumn", "History", "Photography", "Traditional", "Culture"],
+                "liked": "One of Japan's top three gardens with 300-year history. Chishio-no-mori maple groves are spectacular in autumn. View of Okayama Castle across the river. Well-maintained with seasonal flower displays.",
+                "disliked": "Can be crowded during peak autumn foliage. Entry fee required. Limited seating areas for rest. Peak colors last only 2-3 weeks in late November/early December.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "iya-valley",
+                "name": "Iya Valley (Tokushima)",
+                "region": "Shikoku",
+                "description": "Remote mountain valley famous for ancient vine bridges and dramatic autumn colors.",
+                "tags": ["Nature", "Autumn", "Adventure", "Off-Beat", "History", "Onsen"],
+                "liked": "Spectacular autumn colors throughout the entire valley. Famous vine suspension bridges are thrilling to cross. Hotel Iya Onsen offers rotenburo reached by cable car. Extremely remote and peaceful. Traditional thatched roof houses.",
+                "disliked": "Very remote and difficult to access without a car. Limited accommodation and dining options. Vine bridges can be scary for those with height fears. Weather can be unpredictable in mountains.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "ritsurin-garden",
+                "name": "Ritsurin Garden (Kagawa)",
+                "region": "Shikoku",
+                "description": "Masterpiece landscape garden with autumn colors so vivid they look edible.",
+                "tags": ["Gardens", "Autumn", "Photography", "Traditional", "Culture", "History"],
+                "liked": "Incredibly vivid autumn colors that appear almost surreal. One of Japan's most photogenic gardens. Mount Shiun provides beautiful backdrop. Traditional tea houses with garden views. Frequent TV and film location.",
+                "disliked": "Can get crowded during peak foliage season. Entry fee required (410 yen). Limited parking during busy periods. Peak colors last only a few weeks.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "matsuyama-dogo-onsen",
+                "name": "Matsuyama & Dogo Onsen (Ehime)",
+                "region": "Shikoku",
+                "description": "Historic castle town home to Japan's oldest hot spring and inspiration for Spirited Away.",
+                "tags": ["Onsen", "History", "Culture", "Autumn", "Traditional", "Castle"],
+                "liked": "Dogo Onsen Honkan inspired Studio Ghibli's Spirited Away. One of Japan's oldest hot springs with 3,000-year history. Matsuyama Castle offers great autumn views via ropeway. Traditional streetcar system.",
+                "disliked": "Dogo Onsen main building under renovation until 2024. Can be very crowded with tour groups. Limited English at traditional ryokan. Hot spring etiquette can be intimidating for newcomers.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "nakatsu-gorge",
+                "name": "Nakatsu Gorge (Kochi)",
+                "region": "Shikoku",
+                "description": "Sacred 'power spot' gorge with a 2.3km hiking trail to spectacular waterfall.",
+                "tags": ["Nature", "Hiking", "Autumn", "Spiritual", "Photography", "Off-Beat"],
+                "liked": "Sacred Shinto power spot formed 300 million years ago. Easy 2.3km hike along Nakatsu River to Uryu no Taki waterfall. Surrounded by autumn colors throughout trail. Ancient spiritual energy and tranquil atmosphere.",
+                "disliked": "Can be slippery when wet. Limited facilities along the trail. No English signage or information. Access requires local transportation. Trail can be crowded during peak foliage.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "oboke-koboke",
+                "name": "Oboke & Koboke Gorges (Tokushima)",
+                "region": "Shikoku",
+                "description": "Dramatic river gorges with boat tours and aerial views of autumn foliage.",
+                "tags": ["Nature", "Autumn", "Boat Tour", "Photography", "Adventure", "Off-Beat"],
+                "liked": "Cruise down Yoshino River through dramatic gorges surrounded by autumn colors. Multiple observation decks provide bird's-eye views. Tunnels of golden leaves when driving between viewpoints. Less crowded than mainland destinations.",
+                "disliked": "Boat tours may be cancelled due to weather or water levels. Limited English on boat tours. Access points can be spread out requiring car rental. Weather can be unpredictable in mountains.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "kankakei-gorge",
+                "name": "Kankakei Gorge (Kagawa)",
+                "region": "Shikoku",
+                "description": "One of Japan's top three gorges accessible by ropeway for spectacular autumn views.",
+                "tags": ["Nature", "Autumn", "Ropeway", "Photography", "Off-Beat", "Island"],
+                "liked": "One of Japan's three most beautiful gorges. Ropeway provides stunning aerial views above autumn-colored trees. Located on Shodoshima Island famous for olives. Dramatic rock formations and deep valleys.",
+                "disliked": "Requires ferry to reach Shodoshima Island. Ropeway may close due to weather conditions. Limited accommodation on the island. Can be crowded during peak autumn season.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "yabakei-gorge",
+                "name": "Yabakei Gorge (Oita)",
+                "region": "Kyushu",
+                "description": "Kyushu's premier autumn destination with uniquely shaped stone peaks and vibrant foliage.",
+                "tags": ["Nature", "Autumn", "Photography", "Off-Beat", "Unique", "Geology"],
+                "liked": "Considered Kyushu's best autumn spot with unique rock formations creating dramatic backdrop. Stone peaks provide striking contrast to colorful foliage. Multiple viewpoints accessible by car. Less internationally known.",
+                "disliked": "Peak colors last only 2-3 weeks. Limited public transportation requiring rental car. Can be crowded with domestic tourists during peak season. Limited accommodation in immediate area.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "takachiho-gorge",
+                "name": "Takachiho Gorge (Miyazaki)",
+                "region": "Kyushu",
+                "description": "Dramatic volcanic gorge with waterfalls carved by ancient lava flows from Mount Aso.",
+                "tags": ["Nature", "Autumn", "Mythology", "Photography", "Unique", "Waterfall"],
+                "liked": "Dramatic gorge carved by volcanic activity with spectacular waterfall. Rich in Japanese mythology as birthplace of sun goddess Amaterasu. Beautiful autumn colors frame the emerald water. Boat rentals available.",
+                "disliked": "Can be very crowded especially weekends. Boat rentals often have long queues. Limited parking during peak times. Access to best viewpoints requires walking on sometimes crowded paths.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "kirishima-highlands",
+                "name": "Kirishima Highlands (Kagoshima)",
+                "region": "Kyushu",
+                "description": "Volcanic highland region with 23 volcanoes, crater lakes, and excellent autumn colors.",
+                "tags": ["Nature", "Autumn", "Volcanoes", "Hiking", "Onsen", "Off-Beat"],
+                "liked": "Dramatic volcanic landscape with crater lakes and hiking trails. Excellent autumn colors in mid-to-late November. Kirishima Onsen hot springs with mountain views. Rich mythology connected to Japanese creation stories.",
+                "disliked": "Some hiking trails can be strenuous. Volcanic activity may restrict access to certain areas. Weather can be unpredictable in highlands. Limited English signage on hiking trails.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "beppu-onsen",
+                "name": "Beppu Onsen (Oita)",
+                "region": "Kyushu",
+                "description": "One of Japan's largest hot spring resorts famous for the colorful 'Hells of Beppu'.",
+                "tags": ["Onsen", "Unique", "Winter", "Geology", "Traditional", "Food"],
+                "liked": "Over 2,000 hot spring sources with incredible variety. Famous 'Hells of Beppu' are geological wonders with colorful pools. Steam vents create otherworldly atmosphere. Excellent local cuisine including hell-steamed foods.",
+                "disliked": "Can be very touristy and commercialized. Strong sulfur smells throughout the city. Some hell tours feel rushed and crowded. Limited English at traditional ryokan.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "yufuin",
+                "name": "Yufuin (Oita)",
+                "region": "Kyushu",
+                "description": "Picturesque onsen town with Lake Kinrinko and Mount Yufu backdrop.",
+                "tags": ["Onsen", "Autumn", "Nature", "Photography", "Traditional", "Art"],
+                "liked": "Stunning scenery around Lake Kinrinko with autumn reflections. Mount Yufu provides beautiful backdrop. Charming art galleries and craft shops. More refined atmosphere than other onsen towns. Great ryokan options.",
+                "disliked": "Can be expensive especially during peak seasons. Very popular with domestic tourists. Limited budget accommodation options. Some areas can feel overly commercialized.",
+                "months": ["November", "December", "January"]
+            },
+            {
+                "id": "kumano-kodo-kii",
+                "name": "Kumano Kodo Pilgrimage Routes (Wakayama/Mie)",
+                "region": "Kansai",
+                "description": "UNESCO World Heritage pilgrimage trails through the mystical Kii Peninsula.",
+                "tags": ["UNESCO", "Hiking", "Spiritual", "Autumn", "History", "Off-Beat"],
+                "liked": "UNESCO World Heritage pilgrimage routes with 1,000+ year history. Spectacular autumn colors throughout ancient cedar forests. Spiritual atmosphere with ancient shrines. Multiple route options for different fitness levels.",
+                "disliked": "Some routes are physically demanding. Limited accommodation along remote sections. Weather can be unpredictable in mountains. Requires advance planning and preparation.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "lake-biwa-shiga",
+                "name": "Lake Biwa Region (Shiga)",
+                "region": "Kansai",
+                "description": "Japan's largest freshwater lake with historic temples and alternative to crowded Kyoto.",
+                "tags": ["Nature", "History", "Autumn", "Off-Beat", "Cultural", "Photography"],
+                "liked": "Japan's largest lake with beautiful autumn reflections. Hikone Castle is one of Japan's original castles. Omihachiman offers Kyoto-like atmosphere without crowds. Ishiyama-dera Temple has spectacular fall colors.",
+                "disliked": "Attractions are spread out requiring transportation. Some areas lack the refinement of Kyoto. Limited international dining options. Can be overlooked by foreign visitors.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "metasequoia-avenue",
+                "name": "Metasequoia Avenue (Shiga)",
+                "region": "Kansai",
+                "description": "A 2.4km avenue lined with 500 metasequoia trees creating a golden tunnel in autumn.",
+                "tags": ["Nature", "Autumn", "Photography", "Off-Beat", "Unique", "Scenic Drive"],
+                "liked": "Spectacular golden tunnel effect created by 500 metasequoia trees. Incredible photo opportunities especially during golden hour. Less crowded than famous maple spots. Easy access by car with parking available.",
+                "disliked": "Peak colors last only 1-2 weeks in late November. Can get crowded during weekends in peak season. Limited facilities or attractions nearby. Weather dependent for best colors.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "kiso-valley-nakasendo",
+                "name": "Kiso Valley (Magome & Tsumago)",
+                "region": "Chubu",
+                "description": "Preserved section of the old Nakasendo Trail connecting historic 'post towns' through mountains.",
+                "tags": ["History", "Hiking", "Autumn", "Culture", "Off-Beat", "Traditional"],
+                "liked": "8km hiking trail between Magome and Tsumago feels like walking through feudal Japan. Beautiful autumn colors in late October and November. Post towns are charming and authentic with traditional inns.",
+                "disliked": "Luggage forwarding service essential but closes in winter. Shops close very early (4-5 PM). Trail can be cold and icy in December. Limited dining options in the villages.",
+                "months": ["April", "May", "September", "October", "November"]
+            },
+            {
+                "id": "takayama-shirakawa-go",
+                "name": "Takayama & Shirakawa-go (Gifu)",
+                "region": "Chubu",
+                "description": "Historic mountain town and UNESCO World Heritage gassho-zukuri village.",
+                "tags": ["UNESCO", "Winter", "Snow", "History", "Traditional", "Culture"],
+                "liked": "Shirakawa-go's thatched-roof houses look magical under snow. Takayama's preserved old town has excellent sake breweries and Hida beef. Winter illuminations create fairy-tale atmosphere. Great ryokan experiences.",
+                "disliked": "Extremely popular and can be very crowded. Accommodation books up months in advance. Can be expensive during peak seasons. Weather can disrupt transportation in winter.",
+                "months": ["November", "December", "January", "February", "March"]
+            },
+            {
+                "id": "kamikochi-japanese-alps",
+                "name": "Kamikochi Valley (Nagano)",
+                "region": "Chubu",
+                "description": "Pristine alpine valley in the Japanese Alps with golden larch forests and crystal-clear rivers.",
+                "tags": ["Nature", "Autumn", "Hiking", "Photography", "Off-Beat", "Alps"],
+                "liked": "Spectacular golden larch forests contrasting with azure Azusa River. Peaceful 2-3 hour walk from Kappabashi Bridge to Myojin Pond. Sacred pond reflections create dreamlike scenes. Excellent mountain hiking base.",
+                "disliked": "Closed from mid-November to mid-April. Access restricted to buses/taxis only. Can be very crowded during peak autumn. Weather can change quickly in mountains. Limited accommodation options.",
+                "months": ["September", "October", "November"]
+            },
+            {
+                "id": "kusatsu-onsen",
+                "name": "Kusatsu Onsen (Gunma)",
+                "region": "Chubu",
+                "description": "One of Japan's top three onsens famous for high-quality sulfuric waters and Yubatake hot water field.",
+                "tags": ["Onsen", "Winter", "Traditional", "Snow", "Healing", "Culture"],
+                "liked": "One of Japan's top three onsens with exceptional healing waters. Yubatake hot water field is spectacular, especially steaming under snow. Traditional yumomi (water cooling) performances. Excellent ski resort nearby.",
+                "disliked": "Very strong sulfur smell throughout town. Water is extremely hot requiring careful attention. Can be crowded especially weekends. Limited English at traditional establishments.",
+                "months": ["December", "January", "February", "March"]
+            },
+            {
+                "id": "jigokudani-snow-monkeys",
+                "name": "Jigokudani Snow Monkey Park (Nagano)",
+                "region": "Chubu",
+                "description": "World-famous park where Japanese macaques bathe in natural hot springs surrounded by snow.",
+                "tags": ["Wildlife", "Winter", "Onsen", "Photography", "Unique", "Nature"],
+                "liked": "Unique opportunity to see wild monkeys bathing in hot springs. Most active and photogenic during snowy winter months. Beautiful forest setting with several onsen nearby. Relatively easy access from Tokyo.",
+                "disliked": "Monkeys may not be in hot springs if weather isn't cold enough. 25-minute walk from parking through forest can be challenging in winter. Can get very crowded. Entry fee required.",
+                "months": ["December", "January", "February", "March"]
+            },
+            {
+                "id": "hakuba-valley",
+                "name": "Hakuba Valley (Nagano)",
+                "region": "Chubu",
+                "description": "World-class ski resort area that hosted 1998 Winter Olympics with multiple ski areas.",
+                "tags": ["Skiing", "Winter", "Snow", "Olympics", "Alps", "Adventure"],
+                "liked": "World-class powder snow and ski facilities. Multiple ski resorts catering to all levels. Beautiful Japanese Alps scenery. Good English services and international atmosphere. Excellent après-ski dining.",
+                "disliked": "Can be expensive during peak ski season. Very crowded during holidays and weekends. Accommodation books up early for peak periods. Limited non-skiing activities.",
+                "months": ["December", "January", "February", "March"]
+            },
+            {
+                "id": "matsumoto-castle",
+                "name": "Matsumoto (Nagano)",
+                "region": "Chubu",
+                "description": "Historic castle town dominated by one of Japan's most beautiful original castles.",
+                "tags": ["History", "Culture", "Autumn", "Castle", "Art", "Traditional"],
+                "liked": "One of Japan's most photogenic original castles. Excellent autumn colors in surrounding parks. Good base for exploring Japanese Alps. Rich history and well-preserved castle town atmosphere.",
+                "disliked": "Castle interior can be very crowded. Steep wooden stairs inside castle challenging for some visitors. Limited English explanations. Peak autumn colors last only 2-3 weeks.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "izu-peninsula",
+                "name": "Izu Peninsula (Shizuoka)",
+                "region": "Chubu",
+                "description": "Scenic peninsula famous for hot springs, coastal scenery, and early spring flowers.",
+                "tags": ["Onsen", "Coast", "Nature", "Photography", "Accessible", "Relaxation"],
+                "liked": "Beautiful rugged coastline with numerous hot spring resorts. Ito has one of Japan's largest hot spring outputs. Jogasaki Coast offers dramatic lava rock formations. Mount Omuro provides panoramic views.",
+                "disliked": "Can be very crowded during golden week and summer. Some areas heavily developed and touristy. Limited autumn colors compared to mountain regions. Public transport can be infrequent.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "nikko-oku-nikko",
+                "name": "Nikko & Oku-Nikko (Tochigi)",
+                "region": "Chubu",
+                "description": "UNESCO World Heritage shrines and spectacular mountain lakes with autumn foliage.",
+                "tags": ["UNESCO", "Autumn", "History", "Nature", "Hiking", "Photography"],
+                "liked": "UNESCO World Heritage Toshogu Shrine complex is magnificent. Lake Chuzenji and Kegon Falls spectacular in autumn. Senjogahara Marsh offers excellent hiking. One of Japan's best autumn destinations.",
+                "disliked": "Extremely crowded during peak autumn season. Parking can be very difficult. Accommodation books up far in advance. Weather can be unpredictable in mountains.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "oze-national-park",
+                "name": "Oze National Park (Gunma/Fukushima/Niigata)",
+                "region": "Chubu",
+                "description": "Pristine wetlands and marshes with wooden boardwalk trails through autumn scenery.",
+                "tags": ["Nature", "Hiking", "Autumn", "Off-Beat", "Photography", "Wetlands"],
+                "liked": "Vast grass-covered marshland turns reddish-yellow in autumn. Wooden boardwalks make hiking accessible. Relatively few international visitors. Crystal-clear ponds reflect autumn colors beautifully.",
+                "disliked": "Access requires advance planning and early morning starts. Weather can change quickly. Limited facilities once on the trails. Hiking season is relatively short.",
+                "months": ["September", "October", "November"]
+            },
+            {
+                "id": "kanazawa-kenrokuen",
+                "name": "Kanazawa & Kenroku-en Garden (Ishikawa)",
+                "region": "Chubu",
+                "description": "Elegant former castle town with one of Japan's three most beautiful gardens.",
+                "tags": ["Culture", "Gardens", "History", "Winter", "Traditional", "Art"],
+                "liked": "One of Japan's three most beautiful gardens with seasonal beauty. Historic Higashi Chaya geisha district. Excellent museums and contemporary art. Famous for gold leaf crafts and exceptional kaiseki cuisine.",
+                "disliked": "Can be expensive especially accommodation and dining. Weather can be unpredictable with frequent rain. Some attractions close during winter months. Crowds during peak garden seasons.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "noto-peninsula",
+                "name": "Noto Peninsula (Ishikawa)",
+                "region": "Chubu",
+                "description": "Rural peninsula jutting into the Sea of Japan with traditional farming and fishing villages.",
+                "tags": ["Off-Beat", "Coast", "Traditional", "Rural", "Culture", "Nature"],
+                "liked": "Authentic rural Japan experience with traditional thatched-roof villages. Dramatic coastline along Sea of Japan. Wajima morning market and lacquerware crafts. Senmaida rice terraces cascade down to ocean.",
+                "disliked": "Very limited public transportation requiring rental car. Few English services or signage. Limited accommodation options. Weather can be harsh in winter with strong winds.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "sado-island",
+                "name": "Sado Island (Niigata)",
+                "region": "Chubu",
+                "description": "Large island famous for gold mines, taiko drumming, and traditional performing arts.",
+                "tags": ["Off-Beat", "Culture", "History", "Traditional", "Island", "Performance"],
+                "liked": "Rich history as exile island with unique culture. World-famous Kodo taiko drumming performances. Historic gold mines and traditional villages. Excellent seafood and sake. Beautiful autumn colors in mountains.",
+                "disliked": "Requires ferry crossing which can be cancelled due to weather. Limited accommodation options. Transportation on island can be challenging. Some areas have limited English support.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "echigo-tsumari",
+                "name": "Echigo-Tsumari Art Region (Niigata)",
+                "region": "Chubu",
+                "description": "Rural art region with contemporary installations scattered throughout traditional villages.",
+                "tags": ["Art", "Off-Beat", "Rural", "Contemporary", "Culture", "Photography"],
+                "liked": "Unique fusion of contemporary art and rural landscape. Triennale art festival creates internationally acclaimed installations. Beautiful terraced rice fields and traditional farmhouses. Peaceful countryside atmosphere.",
+                "disliked": "Art installations may not appeal to all visitors. Limited public transportation requiring rental car. Some artworks only accessible during festival periods. Limited accommodation options.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "kinosaki-onsen",
+                "name": "Kinosaki Onsen (Hyogo)",
+                "region": "Kansai",
+                "description": "Charming hot spring town famous for seven public baths and winter crab cuisine.",
+                "tags": ["Onsen", "Traditional", "Winter", "Food", "Culture", "Historic"],
+                "liked": "Seven different public hot spring baths for onsen hopping. Famous for winter crab cuisine from November to March. Charming willow-lined streets with traditional ryokan. Beautiful yukata (kimono) culture preserved.",
+                "disliked": "Can be very expensive during crab season. Accommodation books up quickly for winter months. Limited activities beyond onsen bathing. Some ryokan have strict rules and schedules.",
+                "months": ["November", "December", "January", "February", "March"]
+            },
+            {
+                "id": "amanohashidate",
+                "name": "Amanohashidate (Kyoto)",
+                "region": "Kansai",
+                "description": "One of Japan's three most scenic views featuring a pine-covered sandbar.",
+                "tags": ["Nature", "Photography", "Traditional", "Scenic", "History", "Off-Beat"],
+                "liked": "One of Japan's three most scenic views. Pine-covered sandbar creates unique landscape. Cable car and chairlift provide aerial perspectives. Traditional view of bending over to see 'dragon ascending to heaven'.",
+                "disliked": "Can be anticlimactic for some visitors. Limited activities beyond sightseeing. Access requires multiple train connections. Weather dependent for best views.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "mount-koya",
+                "name": "Mount Koya (Wakayama)",
+                "region": "Kansai",
+                "description": "Sacred Buddhist mountain with temple lodging and one of Japan's largest cemeteries.",
+                "tags": ["Spiritual", "History", "Culture", "Traditional", "UNESCO", "Off-Beat"],
+                "liked": "Authentic Buddhist temple lodging (shukubo) experience. Okunoin cemetery with 200,000 graves is mystical. Vegetarian Buddhist cuisine (shojin ryori). UNESCO World Heritage site with 1,200-year history.",
+                "disliked": "Temple accommodations have strict rules and early schedules. Vegetarian meals may not appeal to everyone. Can be cold and damp in autumn/winter. Limited modern amenities at temples.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "yoshino-mount",
+                "name": "Mount Yoshino (Nara)",
+                "region": "Kansai",
+                "description": "Sacred mountain famous for 30,000 cherry trees and autumn colors in reverse season.",
+                "tags": ["Nature", "Autumn", "Spiritual", "Hiking", "Photography", "Off-Beat"],
+                "liked": "30,000 trees create spectacular displays in both spring and autumn. Sacred sites and temples throughout the mountain. Multiple elevation levels extend viewing season. UNESCO World Heritage designation.",
+                "disliked": "Extremely crowded during cherry blossom season. Steep hiking trails can be challenging. Limited accommodation on the mountain. Weather can be unpredictable.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "ise-shima",
+                "name": "Ise-Shima Peninsula (Mie)",
+                "region": "Kansai",
+                "description": "Sacred peninsula home to Japan's most important Shinto shrine and famous for pearl diving.",
+                "tags": ["Spiritual", "Culture", "Coast", "Traditional", "History", "Food"],
+                "liked": "Ise Grand Shrine is Japan's most sacred Shinto site. Beautiful rias coastline with numerous bays. Famous for ama (female pearl divers) culture. Excellent seafood including spiny lobster and abalone.",
+                "disliked": "Can be very crowded especially during major festivals. Limited public transportation requiring rental car for full exploration. Some areas heavily commercialized. Weather can be unpredictable.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "mino-paper-town",
+                "name": "Mino (Gifu)",
+                "region": "Chubu",
+                "description": "Traditional town famous for 1,300 years of washi paper making and autumn lantern festival.",
+                "tags": ["Traditional", "Crafts", "Culture", "Autumn", "History", "Art"],
+                "liked": "1,300-year history of traditional washi paper making. Beautiful preserved townscape with udatsu merchant architecture. Autumn lantern festival creates magical atmosphere. Hands-on paper making workshops available.",
+                "disliked": "Limited accommodation options in town. Best visited as day trip from Nagoya or Gifu. Some workshops require advance reservations. Limited English information available.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "gero-onsen",
+                "name": "Gero Onsen (Gifu)",
+                "region": "Chubu",
+                "description": "One of Japan's top three hot springs famous for silky smooth waters.",
+                "tags": ["Onsen", "Traditional", "Winter", "Relaxation", "History", "Nature"],
+                "liked": "One of Japan's top three hot springs with 1,000-year history. Silky smooth alkaline waters excellent for skin. Beautiful mountain setting along Hida River. Good value compared to other famous onsen.",
+                "disliked": "Can feel dated compared to more modern onsen resorts. Limited activities beyond hot spring bathing. Some facilities may have limited English. Weather can be unpredictable in mountains.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "kumano-hongu-taisha",
+                "name": "Kumano Hongu Taisha (Wakayama)",
+                "region": "Kansai",
+                "description": "Head shrine of Kumano worship with giant torii gate and connection to pilgrimage routes.",
+                "tags": ["Spiritual", "UNESCO", "History", "Culture", "Off-Beat", "Traditional"],
+                "liked": "Head shrine of Kumano faith with 2,000-year history. Massive torii gate (33m tall) visible from far away. Connection point for multiple Kumano Kodo pilgrimage routes. Mystical atmosphere in ancient forest setting.",
+                "disliked": "Remote location requiring careful planning. Limited accommodation in immediate area. Some pilgrimage routes physically demanding. Weather can disrupt mountain access.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "shigaraki-pottery",
+                "name": "Shigaraki (Shiga)",
+                "region": "Kansai",
+                "description": "Famous pottery town known as 'the pottery town' with 1,000+ year ceramic tradition.",
+                "tags": ["Crafts", "Traditional", "Culture", "Art", "Off-Beat", "History"],
+                "liked": "Over 1,000 years of ceramic tradition with famous tanuki (raccoon) statues. Designated National Traditional Craft. Many active kilns and pottery workshops. Beautiful natural glazes using local clay.",
+                "disliked": "Limited English at traditional workshops. Some pottery experiences require advance booking. Public transportation to pottery areas can be limited. Mainly appeals to craft enthusiasts.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "tobe-pottery",
+                "name": "Tobe Pottery Town (Ehime)",
+                "region": "Shikoku",
+                "description": "Traditional pottery town famous for white porcelain with indigo blue designs.",
+                "tags": ["Crafts", "Traditional", "Culture", "Art", "Shopping", "Off-Beat"],
+                "liked": "Beautiful white porcelain with distinctive indigo blue patterns. About 100 active kilns and pottery shops. Autumn pottery festival in November. Hands-on pottery making experiences available.",
+                "disliked": "Mainly appeals to pottery enthusiasts. Limited accommodation in the area. Some workshops require Japanese language skills. Best visited as day trip from Matsuyama.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "mashiko-pottery",
+                "name": "Mashiko Pottery Town (Tochigi)",
+                "region": "Chubu",
+                "description": "Famous pottery town known for mingei folk art movement and rustic ceramic style.",
+                "tags": ["Crafts", "Traditional", "Art", "Culture", "Folk", "Historic"],
+                "liked": "Famous for mingei folk art movement led by Shoji Hamada. Over 380 pottery craftsmen active today. Ceramic Art Messe theme park with hands-on experiences. Autumn pottery festival draws major crowds.",
+                "disliked": "Can be very crowded during pottery festivals. Limited accommodation options. Some pottery classes require advance reservations. Mainly appeals to craft and art enthusiasts.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "echizen-pottery",
+                "name": "Echizen Pottery (Fukui)",
+                "region": "Chubu",
+                "description": "One of Japan's six ancient kilns producing distinctive reddish-brown pottery.",
+                "tags": ["Crafts", "Traditional", "History", "Art", "Ancient", "Off-Beat"],
+                "liked": "One of Japan's six ancient kilns with 850-year history. Distinctive reddish-brown unglazed pottery. Echizen Pottery Village has museums and workshops. Large pottery festival in May draws enthusiasts.",
+                "disliked": "Very difficult to access without rental car. Limited English information and services. Some pottery experiences require advance booking. Best visited during specific festivals.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "tokoname-pottery",
+                "name": "Tokoname Pottery (Aichi)",
+                "region": "Chubu",
+                "description": "One of Japan's six ancient kilns famous for teapots and reddish-brown ceramics.",
+                "tags": ["Crafts", "Traditional", "History", "Tea", "Ancient", "Shopping"],
+                "liked": "One of Japan's six ancient kilns specializing in teapots. Pottery Footpath winds through traditional workshops. Iron-rich clay creates distinctive reddish color. Excellent for tea ceremony utensils.",
+                "disliked": "Mainly appeals to pottery and tea enthusiasts. Limited activities beyond pottery viewing. Some workshops have restricted access. Public transportation from Nagoya requires connections.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "kuma-valley",
+                "name": "Kuma Valley (Kumamoto)",
+                "region": "Kyushu",
+                "description": "Hidden valley in Kyushu known for pristine rivers and traditional mountain villages.",
+                "tags": ["Off-Beat", "Nature", "Rivers", "Traditional", "Hidden", "Rural"],
+                "liked": "Incredibly pristine mountain valley with crystal-clear rivers. Traditional thatched-roof villages preserve old Japan atmosphere. Excellent for river activities and hiking. Very few foreign tourists.",
+                "disliked": "Extremely remote requiring rental car and careful planning. Limited accommodation and dining options. No English signage or services. Access roads can be narrow and winding.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "oura-rice-terraces",
+                "name": "Oura Rice Terraces (Saga)",
+                "region": "Kyushu",
+                "description": "Spectacular rice terraces considered among Japan's most impressive.",
+                "tags": ["Agriculture", "Photography", "Nature", "Off-Beat", "Rural", "Scenery"],
+                "liked": "Most impressive rice terraces in Japan according to some experts. Beautiful reflections during flooded season. Autumn golden colors create spectacular scenery. Very few tourists and peaceful atmosphere.",
+                "disliked": "Best viewing requires specific timing with rice growing seasons. Limited facilities or services nearby. Access requires rental car. No accommodation in immediate area.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "yakushima-island",
+                "name": "Yakushima Island (Kagoshima)",
+                "region": "Kyushu",
+                "description": "UNESCO World Heritage island with ancient cedar forests and inspiration for Princess Mononoke.",
+                "tags": ["UNESCO", "Nature", "Hiking", "Ancient", "Island", "Forest"],
+                "liked": "Ancient cedar trees over 1,000 years old including 7,000-year-old Jomon Sugi. Shiratani Unsuikyo inspired Studio Ghibli's Princess Mononoke. Diverse ecosystems from coast to mountains. Excellent hiking trails.",
+                "disliked": "Requires ferry journey that can be cancelled due to weather. Very high rainfall throughout the year. Some hiking trails are physically demanding. Limited accommodation options.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "chiran-samurai-village",
+                "name": "Chiran Samurai Village (Kagoshima)",
+                "region": "Kyushu",
+                "description": "Beautifully preserved samurai district with traditional gardens and architecture.",
+                "tags": ["History", "Samurai", "Gardens", "Traditional", "Culture", "Peaceful"],
+                "liked": "Best-preserved samurai district in Japan with traditional gardens. Beautiful stone walls and hedges line historic streets. Each garden has unique design reflecting samurai family taste. Peaceful atmosphere without crowds.",
+                "disliked": "Limited activities beyond walking and garden viewing. Some houses are private and not open to public. Best visited as day trip from Kagoshima. Limited English information available.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "ibusuki-sand-baths",
+                "name": "Ibusuki Sand Baths (Kagoshima)",
+                "region": "Kyushu",
+                "description": "Unique hot spring resort where visitors are buried in naturally heated volcanic sand.",
+                "tags": ["Onsen", "Unique", "Volcanic", "Beach", "Relaxation", "Unusual"],
+                "liked": "Unique sand bathing experience using naturally heated volcanic sand. Beautiful coastal location on Satsuma Peninsula. Relaxing and therapeutic for muscles and circulation. Unusual experience not found elsewhere.",
+                "disliked": "Sand bathing may not appeal to everyone. Limited to specific weather conditions. Can feel claustrophobic for some visitors. Salt air can be harsh on sensitive skin.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "cape-sata",
+                "name": "Cape Sata (Kagoshima)",
+                "region": "Kyushu",
+                "description": "Japan's southernmost point on mainland Kyushu with dramatic coastal scenery.",
+                "tags": ["Coast", "Scenic", "Off-Beat", "Photography", "Nature", "Remote"],
+                "liked": "Japan's southernmost point on mainland with dramatic coastline. Beautiful views of Pacific Ocean and offshore islands. Lighthouse and walking trails along rugged cliffs. Very few tourists and peaceful atmosphere.",
+                "disliked": "Extremely remote requiring long drive from major cities. Limited facilities and services. Weather can be unpredictable with strong winds. No accommodation in immediate area.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "hitoyoshi-kuma-river",
+                "name": "Hitoyoshi & Kuma River (Kumamoto)",
+                "region": "Kyushu",
+                "description": "Historic castle town famous for river rafting and traditional shochu distilleries.",
+                "tags": ["History", "Rivers", "Adventure", "Traditional", "Crafts", "Off-Beat"],
+                "liked": "Exciting Kuma River rafting through scenic gorges. Traditional shochu distilleries offer tastings and tours. Historic castle ruins and traditional architecture. Peaceful mountain town atmosphere.",
+                "disliked": "River activities weather dependent and seasonal. Limited English at traditional distilleries. Some attractions may be closed after recent flooding damage. Remote location requires careful planning.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "aso-kuju-national-park",
+                "name": "Aso-Kuju National Park (Kumamoto/Oita)",
+                "region": "Kyushu",
+                "description": "Active volcanic landscape with the world's largest volcanic caldera.",
+                "tags": ["Volcanoes", "Nature", "Hiking", "Unique", "Photography", "Dramatic"],
+                "liked": "World's largest volcanic caldera with active crater. Dramatic grassland landscape unique in Japan. Multiple hiking trails with spectacular views. Aso milk and beef are local specialties.",
+                "disliked": "Volcanic activity may restrict access to crater areas. Weather can change quickly in highlands. Some hiking trails require good fitness level. Limited accommodation within the park.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "usuki-stone-buddhas",
+                "name": "Usuki Stone Buddhas (Oita)",
+                "region": "Kyushu",
+                "description": "UNESCO World Heritage site with over 60 stone Buddha statues carved into cliffs.",
+                "tags": ["UNESCO", "History", "Buddhist", "Art", "Off-Beat", "Spiritual"],
+                "liked": "Over 60 stone Buddha statues carved directly into rock faces. UNESCO World Heritage designation. 800-900 year history with mysterious origins. Peaceful spiritual atmosphere in natural setting.",
+                "disliked": "Mainly appeals to history and Buddhist art enthusiasts. Limited activities beyond viewing statues. Some statues weathered and difficult to see clearly. No accommodation in immediate area.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "kunisaki-peninsula",
+                "name": "Kunisaki Peninsula (Oita)",
+                "region": "Kyushu",
+                "description": "Sacred peninsula with unique Shinto-Buddhist fusion culture and ancient stone sculptures.",
+                "tags": ["Spiritual", "Off-Beat", "History", "Culture", "Traditional", "Art"],
+                "liked": "Unique Shinto-Buddhist fusion culture not found elsewhere. Ancient stone sculptures and carvings throughout peninsula. Peaceful rural landscape with traditional farming villages. Rich spiritual heritage and legends.",
+                "disliked": "Very remote requiring rental car for access. Limited English information and services. Attractions spread over wide area. No major accommodation options on peninsula.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "nagasaki-sasebo",
+                "name": "Sasebo & Kujukushima Islands (Nagasaki)",
+                "region": "Kyushu",
+                "description": "Scenic bay with 208 forested islands creating a beautiful seascape.",
+                "tags": ["Coast", "Islands", "Nature", "Photography", "Cruise", "Scenic"],
+                "liked": "208 small forested islands create stunning seascape. Boat cruises provide excellent island views. Kujukushima Aquarium has good regional marine life displays. Beautiful sunset views from observation decks.",
+                "disliked": "Limited activities beyond sightseeing cruises. Weather dependent for best island views. Some islands are private and inaccessible. Limited accommodation with island views.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "hirado-island",
+                "name": "Hirado Island (Nagasaki)",
+                "region": "Kyushu",
+                "description": "Historic island with unique blend of Japanese and European Christian heritage.",
+                "tags": ["History", "Culture", "Christian", "Island", "Off-Beat", "Traditional"],
+                "liked": "Unique Christian heritage from early European contact. Historic Hirado Castle with ocean views. Traditional fishing villages and beautiful coastal scenery. Hidden Christian sites and churches.",
+                "disliked": "Remote island location requiring bridge crossing. Limited public transportation on island. Some Christian sites require advance arrangements. Limited accommodation options.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "unzen-national-park",
+                "name": "Unzen National Park (Nagasaki)",
+                "region": "Kyushu",
+                "description": "Volcanic hot spring resort with historic significance and beautiful autumn colors.",
+                "tags": ["Volcanoes", "Onsen", "History", "Autumn", "Nature", "Hiking"],
+                "liked": "Historic hot spring resort with dramatic volcanic landscape. Beautiful autumn colors throughout park. Unzen Hell hot springs create otherworldly atmosphere. Historic significance as Christian martyrdom site.",
+                "disliked": "Some areas may be restricted due to volcanic activity. Strong sulfur smells from hot springs. Limited accommodation compared to other onsen areas. Weather can be unpredictable in mountains.",
+                "months": ["November", "December"]
+            },
+            {
+                "id": "goto-islands",
+                "name": "Goto Islands (Nagasaki)",
+                "region": "Kyushu",
+                "description": "Remote island chain with hidden Christian heritage and pristine beaches.",
+                "tags": ["Islands", "Christian", "Off-Beat", "History", "Beach", "Remote"],
+                "liked": "Hidden Christian heritage with secret churches and traditions. Beautiful pristine beaches and coastal scenery. Very few foreign tourists and authentic island culture. Excellent fresh seafood and local specialties.",
+                "disliked": "Very remote requiring ferry journey that can be cancelled. Limited accommodation and dining options. Some Christian sites require local guide. Transportation on islands can be challenging.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "amami-oshima",
+                "name": "Amami Oshima (Kagoshima)",
+                "region": "Kyushu",
+                "description": "Subtropical island with UNESCO World Heritage forests and unique culture.",
+                "tags": ["UNESCO", "Subtropical", "Nature", "Culture", "Off-Beat", "Island"],
+                "liked": "UNESCO World Heritage subtropical forests with endemic species. Unique Amami culture distinct from mainland Japan. Beautiful beaches and coral reefs. Traditional textiles and crafts. Mild winter climate.",
+                "disliked": "Requires flight from mainland Japan. Limited accommodation options. Some forest areas require guided tours only. Language barrier can be significant. Transportation on island limited.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "tokara-islands",
+                "name": "Tokara Islands (Kagoshima)",
+                "region": "Kyushu",
+                "description": "Chain of volcanic islands between Kyushu and Okinawa with unique culture.",
+                "tags": ["Islands", "Volcanoes", "Off-Beat", "Remote", "Adventure", "Unique"],
+                "liked": "Extremely remote and unspoiled island chain. Active volcanoes and hot springs. Unique island culture and traditions. Excellent stargazing due to no light pollution. Very few tourists.",
+                "disliked": "Extremely difficult to access with infrequent ferry service. Very limited accommodation and facilities. Ferry journeys can be cancelled due to weather. No English services available.",
+                "months": ["November", "December", "January"]
+            },
+            {
+                "id": "iki-island",
+                "name": "Iki Island (Nagasaki)",
+                "region": "Kyushu",
+                "description": "Historic island between Kyushu and Korea with ancient shrines and archaeological sites.",
+                "tags": ["History", "Islands", "Archaeological", "Off-Beat", "Spiritual", "Ancient"],
+                "liked": "Rich ancient history with archaeological sites and burial mounds. Traditional fishing island culture preserved. Beautiful coastal scenery and beaches. Excellent fresh seafood and local sake. Fewer tourists.",
+                "disliked": "Limited accommodation and dining options. Requires ferry crossing from mainland. Some historical sites require local knowledge to appreciate. Limited English information available.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "tsushima-island",
+                "name": "Tsushima Island (Nagasaki)",
+                "region": "Kyushu",
+                "description": "Mountainous border island between Japan and Korea with unique wildlife and history.",
+                "tags": ["Islands", "Wildlife", "History", "Off-Beat", "Nature", "Border"],
+                "liked": "Unique position between Japan and Korea creates interesting cultural mix. Endemic Tsushima leopard cat and other rare wildlife. Beautiful mountainous interior with hiking trails. Historic Korean-Japanese relations sites.",
+                "disliked": "Very remote location requiring flight or long ferry journey. Limited tourist infrastructure. Wildlife viewing requires patience and luck. Limited English services and information.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "shimonoseki-kanmon",
+                "name": "Shimonoseki & Kanmon Strait (Yamaguchi)",
+                "region": "Chugoku",
+                "description": "Historic port city at Japan's western tip famous for fugu and historical significance.",
+                "tags": ["History", "Food", "Coast", "Traditional", "Culture", "Strait"],
+                "liked": "Famous for high-quality fugu (pufferfish) restaurants. Historic Kanmon Strait with underwater tunnel to Kyushu. Akama Shrine dedicated to tragic child emperor. Views across to Kyushu and Kanmon Bridge.",
+                "disliked": "Mainly appeals to history enthusiasts. Fugu can be expensive and may not appeal to all visitors. Industrial port areas not particularly scenic. Limited major tourist attractions.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "hagi-castle-town",
+                "name": "Hagi Historic Town (Yamaguchi)",
+                "region": "Chugoku",
+                "description": "Well-preserved castle town with samurai districts and traditional pottery.",
+                "tags": ["History", "Samurai", "Traditional", "Culture", "Pottery", "Preserved"],
+                "liked": "Best-preserved samurai town in Chugoku region. Traditional Hagi pottery workshops and kilns. Historic significance in Meiji Restoration. Beautiful traditional architecture and stone walls. Fewer crowds than other castle towns.",
+                "disliked": "Limited activities beyond historical sightseeing. Some sites require knowledge of Japanese history to fully appreciate. Public transportation within town can be limited. Limited accommodation options.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "akiyoshidai-plateau",
+                "name": "Akiyoshidai Plateau (Yamaguchi)",
+                "region": "Chugoku",
+                "description": "Largest karst plateau in Japan with limestone grasslands and massive cave system.",
+                "tags": ["Nature", "Caves", "Unique", "Photography", "Geology", "Off-Beat"],
+                "liked": "Unique limestone karst landscape with grasslands dotted by stone pillars. Akiyoshido Cave is massive with impressive limestone formations. Observatory provides panoramic plateau views. Very different from typical Japanese scenery.",
+                "disliked": "Limited activities beyond sightseeing and cave exploration. Cave can be cool and damp year-round. Access requires rental car or tour bus. Limited accommodation in immediate area.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "sandankyo-gorge",
+                "name": "Sandankyo Gorge (Hiroshima)",
+                "region": "Chugoku",
+                "description": "Spectacular gorge with pristine river, waterfalls, and exceptional autumn colors.",
+                "tags": ["Nature", "Autumn", "Gorge", "Hiking", "Photography", "Off-Beat"],
+                "liked": "Considered one of Japan's most beautiful gorges with crystal-clear river. Outstanding autumn colors reflecting in emerald water. Multiple waterfalls and scenic spots along hiking trail. Boat tours available in sections.",
+                "disliked": "Access requires rental car through mountain roads. Some hiking trails can be challenging. Weather dependent for best colors and boat operations. Limited accommodation nearby.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "daisen-mountain",
+                "name": "Mount Daisen (Tottori)",
+                "region": "Chugoku",
+                "description": "Sacred mountain known as the 'Mount Fuji of Western Japan' with autumn colors.",
+                "tags": ["Nature", "Hiking", "Autumn", "Sacred", "Photography", "Off-Beat"],
+                "liked": "Called 'Mount Fuji of Western Japan' for its shape. Excellent hiking trails with panoramic views. Outstanding autumn colors on mountain slopes. Sacred Buddhist sites and temples. Less crowded than famous mountains.",
+                "disliked": "Hiking trails can be steep and challenging. Weather can change quickly on mountain. Limited public transportation to trailheads. Some trails may close due to snow in winter.",
+                "months": ["October", "November"]
+            },
+            {
+                "id": "iwami-ginzan",
+                "name": "Iwami Ginzan Silver Mine (Shimane)",
+                "region": "Chugoku",
+                "description": "UNESCO World Heritage silver mine with historic mining town and traditional architecture.",
+                "tags": ["UNESCO", "History", "Mining", "Traditional", "Off-Beat", "Culture"],
+                "liked": "UNESCO World Heritage site with 400-year silver mining history. Well-preserved historic mining town. Traditional merchant houses and samurai residences. Peaceful mountain setting with hiking trails.",
+                "disliked": "Mainly appeals to history enthusiasts. Mine tours require advance reservations. Limited English information available. Access requires rental car or infrequent bus service.",
+                "months": ["October", "November", "December"]
+            },
+            {
+                "id": "yunotsu-onsen",
+                "name": "Yunotsu Onsen (Shimane)",
+                "region": "Chugoku",
+                "description": "Historic hot spring town on the Sea of Japan with traditional ryokan and architecture.",
+                "tags": ["Onsen", "History", "Traditional", "Coast", "Off-Beat", "Relaxation"],
+                "liked": "Historic onsen town with 1,300-year history. Traditional wooden ryokan architecture preserved. Located on scenic Sea of Japan coast. Peaceful atmosphere with few tourists. Good local seafood.",
+                "disliked": "Very limited accommodation options. Some ryokan are quite traditional with strict rules. Limited activities beyond onsen bathing. Access requires careful transportation planning.",
+                "months": ["November", "December", "January", "February"]
+            },
+            {
+                "id": "tsuwano-little-kyoto",
+                "name": "Tsuwano 'Little Kyoto' (Shimane)",
+                "region": "Chugoku",
+                "description": "Historic castle town known as 'Little Kyoto of San'in' with carp-filled canals.",
+                "tags": ["History", "Traditional", "Culture", "Castle", "Photography", "Off-Beat"],
+                "liked": "Called 'Little Kyoto of San'in' for its preserved historic atmosphere. Colorful carp swimming in street-side canals. Traditional samurai and merchant districts. Beautiful mountain setting with castle ruins.",
+                "disliked": "Can feel touristy despite small size. Limited accommodation options. Some attractions have seasonal hours. Access requires train connections through rural areas.",
+                "months": ["October", "November", "December"]
+            },
             {
                 id: 'hokkaido',
                 name: 'Hokkaido (Sapporo, Furano, Niseko)',
@@ -172,116 +1012,6 @@
                 months: ['April', 'May', 'June', 'July', 'August', 'September', 'October', 'November']
             },
             {
-                id: 'tohoku',
-                name: 'Tohoku (Sendai, Matsushima, Aomori)',
-                region: 'Tohoku',
-                description: 'A region of rugged nature, samurai history, and vibrant summer festivals, and incredible autumn colors.',
-                tags: ['Nature', 'Festivals', 'History', 'Food', 'Onsen', 'Off-Beat', 'Autumn'],
-                liked: 'Matsushima Bay (one of Japan\'s 3 most scenic views). Nebuta Festival in Aomori (Aug). Samurai district in Kakunodate. Amazing rice, sake, and fruit. Spectacular autumn foliage (koyo) throughout October and early November. Less crowded.',
-                disliked: 'Very cold in winter (Dec-Feb). Spread out, requires a car or good JR Pass planning. Less English spoken than in major tourist areas.',
-                months: ['April', 'May', 'August', 'October', 'November']
-            },
-            {
-                id: 'ginzan-onsen',
-                name: 'Ginzan Onsen',
-                region: 'Tohoku',
-                description: 'A stunningly preserved Taisho-era hot spring town, especially magical when covered in snow.',
-                tags: ['Onsen', 'History', 'Winter', 'Culture', 'Retro'],
-                liked: 'Feels like stepping back in time. The gas-lit streets are incredibly atmospheric, especially under snow (late Dec-Feb). Beautiful ryokan. Autumn colors in early November are also lovely.',
-                disliked: 'Extremely popular and books out months in advance. Very small (just one street). Difficult to access, especially in deep winter. Not much to do outside of the ryokan.',
-                months: ['January', 'February', 'November', 'December']
-            },
-            {
-                id: 'oirase-gorge',
-                name: 'Oirase Gorge & Lake Towada',
-                region: 'Tohoku',
-                description: 'A crystal-clear mountain stream flowing through a deep, mossy forest, famous for its autumn display.',
-                tags: ['Nature', 'Hiking', 'Autumn', 'Off-Beat'],
-                liked: 'Absolutely world-class autumn foliage, peaks in late October. The walking trail is easy and follows the stream. Very refreshing in summer. Mossy green forest is beautiful.',
-                disliked: 'Can be extremely crowded during peak foliage (late Oct). Trail is one-way for cars, creating traffic jams. Inaccessible in deep winter.',
-                months: ['June', 'July', 'August', 'September', 'October']
-            },
-            {
-                id: 'zao-onsen',
-                name: 'Zao Onsen',
-                region: 'Tohoku',
-                description: 'A famous ski resort and hot spring village known for its "Snow Monsters" (Juhyo) in winter.',
-                tags: ['Onsen', 'Winter', 'Skiing', 'Nature'],
-                liked: 'The "Snow Monsters" (trees caked in ice and snow) are surreal (peak Jan/Feb, start in Dec). Great skiing. Highly acidic, sulfuric onsen are very unique and relaxing.',
-                disliked: 'The Snow Monsters are not fully formed in December. Can be extremely cold and windy at the top. The strong sulfur smell is not for everyone.',
-                months: ['January', 'February', 'December']
-            },
-            {
-                id: 'kanazawa',
-                name: 'Kanazawa',
-                region: 'Chubu',
-                description: 'A beautifully preserved castle town, often called "Little Kyoto", known for art, crafts, and gardens.',
-                tags: ['Culture', 'History', 'Crafts', 'Food', 'Art', 'Gardens'],
-                liked: 'Kenrokuen Garden (one of Japan\'s top 3), especially with "yukitsuri" snow ropes (starting Nov/Dec). Preserved geisha and samurai districts. 21st Century Museum of Contemporary Art. Fresh seafood from the Sea of Japan (crab season starts in Nov).',
-                disliked: 'Weather can be very grey, wet, and rainy, especially in November and December. Noto Peninsula (nearby) was affected by a 2024 earthquake (check status).',
-                months: ['April', 'May', 'October', 'November', 'December']
-            },
-            {
-                id: 'takayama',
-                name: 'Takayama',
-                region: 'Chubu',
-                description: 'A historic mountain town in the Japan Alps with a stunningly preserved old town and morning markets.',
-                tags: ['History', 'Culture', 'Food', 'Festivals', 'Alps'],
-                liked: 'The preserved Sanmachi Suji (old town) is beautiful. The Autumn Festival (Oct 9-10) is one of Japan\'s best. Hida beef is incredible. Great base for exploring the Japan Alps.',
-                disliked: 'Extremely crowded during the festival. Gets very cold in November and December. Many shops in the old town close by 5 PM.',
-                months: ['April', 'May', 'August', 'September', 'October', 'November']
-            },
-            {
-                id: 'shirakawa-go',
-                name: 'Shirakawa-go & Gokayama',
-                region: 'Chubu',
-                description: 'UNESCO World Heritage villages with traditional "gassho-zukuri" (praying hands) farmhouses.',
-                tags: ['Culture', 'History', 'Winter', 'Nature', 'Off-Beat'],
-                liked: 'Magical when covered in snow (Dec-Feb). The winter illumination events are beautiful. Fascinating architecture. Gokayama is a quieter, more "authentic" alternative.',
-                disliked: 'Extremely crowded, especially during illuminations (requires reservations). Bus access is mandatory. Can feel like a tourist theme park during the day.',
-                months: ['January', 'February', 'May', 'October', 'November', 'December']
-            },
-            {
-                id: 'kiso-valley',
-                name: 'Kiso Valley (Magome & Tsumago)',
-                region: 'Chubu',
-                description: 'A preserved section of the old Nakasendo Trail, connecting historic "post towns" through the mountains.',
-                tags: ['History', 'Hiking', 'Nature', 'Culture', 'Off-Beat'],
-                liked: 'Hiking the 8km trail between Magome and Tsumago feels like walking in feudal Japan. Beautiful autumn colors in late October and November. The towns are charming and authentic.',
-                disliked: 'Luggage forwarding between the towns is essential (and closes in winter). Shops close very early (4-5 PM). Can be cold and icy on the trail in December.',
-                months: ['April', 'May', 'September', 'October', 'November']
-            },
-            {
-                id: 'kamikochi',
-                name: 'Kamikochi',
-                region: 'Chubu',
-                description: 'A pristine, high-altitude river valley in the Japan Alps, considered one of Japan\'s most beautiful natural scenes.',
-                tags: ['Nature', 'Hiking', 'Alps', 'Autumn'],
-                liked: 'Absolutely stunning, jaw-dropping alpine scenery. Crystal clear water. Great hiking. The autumn colors against the snow-dusted peaks in October are breathtaking.',
-                disliked: 'Only open from mid-April to mid-November. Closes for winter. Can be very crowded. Weather is unpredictable and very cold in October.',
-                months: ['May', 'June', 'July', 'August', 'September', 'October']
-            },
-            {
-                id: 'koyasan',
-                name: 'Koya-san (Mt. Koya)',
-                region: 'Kansai',
-                description: 'The sacred center of Shingon Buddhism, offering temple lodging (shukubo) and a mystical forest cemetery.',
-                tags: ['Spiritual', 'Nature', 'Culture', 'History', 'Hiking'],
-                liked: 'Staying in a temple (shukubo) is a unique experience (morning prayers, shojin ryori food). Okunoin Cemetery is mystical, especially on a night tour. Beautiful autumn colors in early November.',
-                disliked: 'Gets very cold from November onwards. Temple food (vegetarian Buddhist cuisine) is not for everyone. Requires multiple transfers (trains, cable car) to reach.',
-                months: ['April', 'May', 'September', 'October', 'November']
-            },
-            {
-                id: 'kinosaki-onsen',
-                name: 'Kinosaki Onsen',
-                region: 'Kansai',
-                description: 'A charming, traditional onsen town where visitors stroll in yukata and geta (wooden clogs) to visit 7 public baths.',
-                tags: ['Onsen', 'Culture', 'Food', 'Retro'],
-                liked: 'The atmosphere of "onsen-hopping" in a yukata is iconic. The town is built for it. Amazing Matsuba Gani (Snow Crab) season starts in November. Very relaxing.',
-                disliked: 'Can be crowded. The public onsen can be small. Not a lot of other activities besides bathing and eating. Crab is very expensive.',
-                months: ['January', 'February', 'March', 'November', 'December']
-            },
-            {
                 id: 'naoshima',
                 name: 'Naoshima & Setouchi Islands',
                 region: 'Chugoku/Shikoku',
@@ -290,16 +1020,6 @@
                 liked: 'World-class art (Chichu Art Museum, Benesse House). The "art islands" concept is unique. Cycling around the island. Mild, pleasant weather in October and November. Less crowded than summer.',
                 disliked: 'Requires careful planning with ferries. Many museums are closed on Mondays. Expensive. Must book accommodation *far* in advance.',
                 months: ['March', 'April', 'May', 'September', 'October', 'November']
-            },
-            {
-                id: 'shimane',
-                name: 'Shimane (Matsue, Izumo)',
-                region: 'Chugoku',
-                description: 'A deeply historic and spiritual region, home to Japan\'s oldest shrine and a beautiful original castle.',
-                tags: ['History', 'Spiritual', 'Culture', 'Off-Beat', 'Gardens'],
-                liked: 'Izumo Taisha (Japan\'s oldest shrine), where all gods are said to meet in October (the "Month of the Gods"). Adachi Museum of Art (has the "perfect" garden). Matsue Castle (one of 12 original castles). Less tourism.',
-                disliked: 'Very remote and spread out. Requires a car or lots of time on local trains. Not much nightlife. Less English spoken.',
-                months: ['April', 'May', 'October', 'November']
             },
             {
                 id: 'kurokawa-onsen',
@@ -322,8 +1042,16 @@
             let activeInterestFilter = 'all';
             let activeMonthFilter = 'all';
 
-            const allTags = [...new Set(destinationsData.flatMap(d => d.tags))].sort();
-            const allMonths = [...new Set(destinationsData.flatMap(d => d.months))].sort((a, b) => {
+            // Deduplicate data, giving preference to the new (agent) data if IDs conflict
+            const dataMap = new Map();
+            destinationsData.forEach(item => {
+                dataMap.set(item.id, item);
+            });
+            const uniqueDestinationsData = Array.from(dataMap.values());
+
+
+            const allTags = [...new Set(uniqueDestinationsData.flatMap(d => d.tags))].sort();
+            const allMonths = [...new Set(uniqueDestinationsData.flatMap(d => d.months))].sort((a, b) => {
                 const monthOrder = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
                 return monthOrder.indexOf(a) - monthOrder.indexOf(b);
             });
@@ -334,13 +1062,19 @@
                     interestFiltersContainer.innerHTML += `<button class="filter-btn text-sm font-semibold py-1 px-3 bg-slate-200 text-slate-700 rounded-full" data-filter="${tag}">${tag}</button>`;
                 });
                 
-                allMonths.forEach(month => {
+                // Clear existing month options before adding new ones
+                const firstOption = monthFilter.options[0];
+                monthFilter.innerHTML = '';
+                monthFilter.appendChild(firstOption);
+
+                const uniqueMonths = [...new Set(allMonths)]; // Ensure months are unique
+                uniqueMonths.forEach(month => {
                     monthFilter.innerHTML += `<option value="${month}">${month}</option>`;
                 });
             }
 
             function renderDestinations() {
-                let filteredData = destinationsData;
+                let filteredData = uniqueDestinationsData;
 
                 if (activeInterestFilter !== 'all') {
                     filteredData = filteredData.filter(d => d.tags.includes(activeInterestFilter));
@@ -377,11 +1111,11 @@
             }
 
             function renderDetails(id) {
-                const dest = destinationsData.find(d => d.id === id);
+                const dest = uniqueDestinationsData.find(d => d.id === id);
                 if (!dest) return;
 
                 detailsPanel.innerHTML = `
-                    <h2 class="text-3xl font-bold text-slate-800">${dest.name}</h2>
+                    <h2 classV="text-3xl font-bold text-slate-800">${dest.name}</h2>
                     <p class="text-md text-slate-500 font-medium mb-4">${dest.region}</p>
                     <p class="text-slate-600 mb-6">${dest.description}</p>
                     
@@ -409,13 +1143,20 @@
                 }
             }
             
+            let myChart = null; // To hold the chart instance
+
             function renderChart() {
+                // Destroy existing chart if it exists
+                if (myChart) {
+                    myChart.destroy();
+                }
+
                 const ctx = document.getElementById('insights-chart').getContext('2d');
                 // Regenerate allTags here to ensure it's from the full new dataset
-                const allTagsForChart = [...new Set(destinationsData.flatMap(d => d.tags))];
+                const allTagsForChart = [...new Set(uniqueDestinationsData.flatMap(d => d.tags))];
                 
                 const tagCounts = allTagsForChart.reduce((acc, tag) => {
-                    acc[tag] = destinationsData.filter(d => d.tags.includes(tag)).length;
+                    acc[tag] = uniqueDestinationsData.filter(d => d.tags.includes(tag)).length;
                     return acc;
                 }, {});
 
@@ -423,7 +1164,7 @@
                 const labels = sortedTags.map(item => item[0]);
                 const data = sortedTags.map(item => item[1]);
                 
-                new Chart(ctx, {
+                myChart = new Chart(ctx, { // Assign the new chart instance
                     type: 'bar',
                     data: {
                         labels: labels,
@@ -497,10 +1238,11 @@
             renderDestinations();
             renderChart();
             // Automatically select the first destination if data exists
-            if(destinationsData.length > 0) {
-              renderDetails(destinationsData[0].id);
+            if(uniqueDestinationsData.length > 0) {
+              renderDetails(uniqueDestinationsData.sort((a, b) => a.name.localeCompare(b.name))[0].id); // Select first in alphabetical order
             }
         });
     </script>
 </body>
 </html>
+
