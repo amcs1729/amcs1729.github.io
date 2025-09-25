@@ -130,6 +130,7 @@
 
     <script>
         // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST - NOW HUGELY EXPANDED AND MERGED
+        // 'images' properties have been removed, as they are now generated dynamically.
         const destinationsData = [
             {
                 "id": "tohoku-sendai-matsushima-aomori",
@@ -994,12 +995,12 @@
             {
                 id: 'shikoku',
                 name: 'Shikoku (Iya Valley, Matsuyama)',
-                region: 'Shikoku',
-                description: 'The smallest of Japan\'s main islands, offering a tranquil, off-the-beaten-path experience with deep nature, the 88 Temple Pilgrimage, and charming rural towns.',
-                tags: ['Nature', 'Spiritual', 'Culture', 'Road Trip', 'Hiking', 'Off-Beat'],
-                liked: 'The "sleepy" and tranquil atmosphere. Stunning nature in the Iya Valley, especially with autumn colors (late Oct/Nov). Cycling the Shimanami Kaido. Ritsurin Gardens in Takamatsu. Dogo Onsen in Matsuyama. The spiritual 88 Temple Pilgrimage.',
-                disliked: 'A rental car is considered essential; public transport is infrequent and limited. Shops close early. Not ideal for a short trip as it takes time to explore properly.',
-                months: ['April', 'May', 'September', 'October', 'November']
+                "region": "Shikoku",
+                "description": "The smallest of Japan\'s main islands, offering a tranquil, off-the-beaten-path experience with deep nature, the 88 Temple Pilgrimage, and charming rural towns.",
+                "tags": ["Nature", "Spiritual", "Culture", "Road Trip", "Hiking", "Off-Beat"],
+                "liked": "The \"sleepy\" and tranquil atmosphere. Stunning nature in the Iya Valley, especially with autumn colors (late Oct/Nov). Cycling the Shimanami Kaido. Ritsurin Gardens in Takamatsu. Dogo Onsen in Matsuyama. The spiritual 88 Temple Pilgrimage.",
+                "disliked": "A rental car is considered essential; public transport is infrequent and limited. Shops close early. Not ideal for a short trip as it takes time to explore properly.",
+                "months": ["April", "May", "September", "October", "November"]
             },
             {
                 id: 'okinawa',
@@ -1114,11 +1115,45 @@
                 const dest = uniqueDestinationsData.find(d => d.id === id);
                 if (!dest) return;
 
+                // --- DYNAMIC IMAGE GENERATION ---
+                // Create a clean base query from the name (e.g., "Ginzan Onsen (Yamagata)" -> "Ginzan")
+                const queryBase = dest.name.split('(')[0].trim().split(' ')[0].replace(/[^a-zA-Z0-9]/g, '');
+                
+                // Create queries using the base name and tags
+                // We use encodeURIComponent to safely format queries for a URL
+                const query1 = encodeURIComponent(queryBase + ',' + dest.tags[0]);
+                const query2 = encodeURIComponent(dest.tags[0] + ',' + dest.tags[1]);
+                const query3 = encodeURIComponent(queryBase + ',' + dest.tags[1]);
+
+                // Generate the Unsplash Source URLs
+                // We add a 'sig' parameter with a random number to try and get different images
+                const imgUrl1 = `https://source.unsplash.com/300x200/?${query1}&sig=${Math.random()}`;
+                const imgUrl2 = `https://source.unsplash.com/300x200/?${query2}&sig=${Math.random()}`;
+                const imgUrl3 = `https://source.unsplash.com/300x200/?${query3}&sig=${Math.random()}`;
+
+                // Create the HTML for the image grid
+                const imagesHTML = `
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                        <a href="https://unsplash.com/s/photos/${query1}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                            <img src="${imgUrl1}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=Image+Not+Found'">
+                        </a>
+                        <a href="https://unsplash.com/s/photos/${query2}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                            <img src="${imgUrl2}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=Image+Not+Found'">
+                        </a>
+                        <a href="https://unsplash.com/s/photos/${query3}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                            <img src="${imgUrl3}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=Image+Not+Found'">
+                        </a>
+                    </div>
+                `;
+                // --- END DYNAMIC IMAGE GENERATION ---
+
                 detailsPanel.innerHTML = `
-                    <h2 classV="text-3xl font-bold text-slate-800">${dest.name}</h2>
+                    <h2 class="text-3xl font-bold text-slate-800">${dest.name}</h2>
                     <p class="text-md text-slate-500 font-medium mb-4">${dest.region}</p>
                     <p class="text-slate-600 mb-6">${dest.description}</p>
                     
+                    ${imagesHTML}
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-green-50 p-4 rounded-lg border border-green-200">
                             <h4 class="font-bold text-lg text-green-800 mb-2">👍 What Travelers Liked</h4>
