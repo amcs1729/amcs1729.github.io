@@ -9,14 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals (Stone, Amber, Slate) -->
-    <!-- Application Structure Plan: A dashboard-style explorer. The main interface features a central control panel with filters for travel interests (Nature, History, Food, etc.) and travel month. These controls dynamically update a list of destination cards. Clicking a card populates a detailed view panel. This structure was chosen to empower users to discover destinations based on their personal preferences and travel plans, making the data more actionable and explorable than a static list. A summary chart provides high-level insights into the types of experiences available. -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: List of destinations with traveler likes/dislikes. Goal: Exploration & Discovery. Presentation: Interactive card list + detail view. Interaction: Click to select, filter by interest/month. Justification: Allows users to quickly scan options and dive deep into relevant ones. Method: HTML/CSS/JS.
-        - Report Info: Categories of travel experiences (nature, onsen, etc.). Goal: Inform at a glance. Presentation: Horizontal Bar Chart. Interaction: Static view of tag popularity. Justification: Provides a quick, quantitative overview of what travelers value in these alternative destinations. Library: Chart.js.
-        - Report Info: Traveler sentiment. Goal: Inform decision-making. Presentation: Clearly separated "Liked" 👍 and "Disliked" 👎 sections. Interaction: Static text display. Justification: Direct and unambiguous presentation of qualitative feedback. Method: HTML/CSS.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -130,7 +122,6 @@
 
     <script>
         // THIS DATA IS SYNTHESIZED FROM THE RESEARCH REQUEST - NOW HUGELY EXPANDED AND MERGED
-        // 'images' properties have been removed, as they are now generated dynamically.
         const destinationsData = [
             {
                 "id": "tohoku-sendai-matsushima-aomori",
@@ -1115,33 +1106,29 @@
                 const dest = uniqueDestinationsData.find(d => d.id === id);
                 if (!dest) return;
 
-                // --- DYNAMIC IMAGE GENERATION ---
-                // Create a clean base query from the name (e.g., "Ginzan Onsen (Yamagata)" -> "Ginzan")
-                const queryBase = dest.name.split('(')[0].trim().split(' ')[0].replace(/[^a-zA-Z0-9]/g, '');
+                // --- DYNAMIC IMAGE GENERATION (Using LoremFlickr) ---
+                const queryBase = dest.name.split('(')[0].trim().replace(/\s/g, ',');
                 
-                // Create queries using the base name and tags
-                // We use encodeURIComponent to safely format queries for a URL
-                const query1 = encodeURIComponent(queryBase + ',' + dest.tags[0]);
-                const query2 = encodeURIComponent(dest.tags[0] + ',' + dest.tags[1]);
-                const query3 = encodeURIComponent(queryBase + ',' + dest.tags[1]);
+                const query1 = `${queryBase},${dest.tags[0]}`;
+                const query2 = `${dest.tags[0]},${dest.tags[1]},Japan`;
+                const query3 = `${queryBase},${dest.tags[1]}`;
 
-                // Generate the Unsplash Source URLs
-                // We add a 'sig' parameter with a random number to try and get different images
-                const imgUrl1 = `https://source.unsplash.com/300x200/?${query1}&sig=${Math.random()}`;
-                const imgUrl2 = `https://source.unsplash.com/300x200/?${query2}&sig=${Math.random()}`;
-                const imgUrl3 = `https://source.unsplash.com/300x200/?${query3}&sig=${Math.random()}`;
-
-                // Create the HTML for the image grid
+                // Generate the LoremFlickr URLs. This service is designed for this kind of use.
+                const imgUrl1 = `https://loremflickr.com/320/240/${query1}/all`;
+                const imgUrl2 = `https://loremflickr.com/320/240/${query2}/all`;
+                const imgUrl3 = `https://loremflickr.com/320/240/${query3}/all`;
+                
+                // Clicking the image now does a Google Images search in a new tab
                 const imagesHTML = `
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                        <a href="https://unsplash.com/s/photos/${query1}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
-                            <img src="${imgUrl1}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=Image+Not+Found'">
+                        <a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(dest.name + ' ' + dest.tags[0])}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                            <img src="${imgUrl1}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.style.display='none'">
                         </a>
-                        <a href="https://unsplash.com/s/photos/${query2}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
-                            <img src="${imgUrl2}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=Image+Not+Found'">
+                        <a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(dest.name + ' ' + dest.tags[1])}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                            <img src="${imgUrl2}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.style.display='none'">
                         </a>
-                        <a href="https://unsplash.com/s/photos/${query3}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
-                            <img src="${imgUrl3}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=Image+Not+Found'">
+                        <a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(dest.name + ' ' + dest.tags[2])}" target="_blank" rel="noopener noreferrer" class="block rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+                            <img src="${imgUrl3}" alt="Image of ${dest.name}" class="w-full h-32 object-cover" onerror="this.style.display='none'">
                         </a>
                     </div>
                 `;
@@ -1280,4 +1267,3 @@
     </script>
 </body>
 </html>
-
