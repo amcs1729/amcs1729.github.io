@@ -11,3 +11,5 @@
 @media(max-width:900px){.map-layout{grid-template-columns:1.1fr 1fr}.map-panel{padding:20px}.map-leg{padding:10px 5px}.map-leg b{font-size:11px}#travelMap{min-height:510px}.map-legend{gap:10px;left:15px;font-size:7px}.map-credit{left:15px}}
 @media(max-width:700px){.map-layout{grid-template-columns:1fr}.map-canvas{border-right:0;border-bottom:1px solid var(--line)}#travelMap{min-height:0;aspect-ratio:720/670}.map-panel{padding:20px}.map-leg{padding:11px}.map-leg b{font-size:12px}.map-legend{bottom:30px;gap:15px}.map-credit{bottom:10px}.map-panel>.eyebrow{margin-bottom:10px}}
 @media print{.map-layout{grid-template-columns:1.4fr 1fr;break-inside:avoid}#travelMap{min-height:400px}.map-panel{padding:12px}.map-leg{padding:6px}#mapInfo{display:none}}
+
+.route-line.flight{stroke:#54819b;stroke-dasharray:2 6}.map-legend i.flight{border-top:2px dotted #54819b}.map-panel{max-height:810px;overflow:auto}.map-canvas svg{min-height:580px}@media(max-width:700px){.map-canvas svg{min-height:0;aspect-ratio:820/650}.map-legend{gap:8px;font-size:6px}.map-panel{max-height:none}}
