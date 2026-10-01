@@ -1,26 +1,16 @@
 # The Winter Edit
 
-Interactive Italy and Switzerland planner for five friends, 27 December 2026 to 8 January 2027.
+Editable static planner at https://amcs1729.github.io/winter-trip/ for five friends, 25 Dec 2026–9 Jan 2027. No build step. Root portfolio preserved.
 
-Live path: https://amcs1729.github.io/winter-trip/
+## Current plan
+HYD 25 Dec 21:00 → Barcelona 26 Dec 08:00 → Naples same day. Naples four nights, Rome three (paid NYE event still unconfirmed), Milan three with Venice day trip, Engelberg three with two ski days, ZRH night 8 Jan → BOM 9 Jan. Positano and Amalfi included on 28 Dec.
 
-Open index.html or serve this directory with any static server. No build step, packages or backend required. The portfolio at the repository root is unchanged.
+## Budget and stays
+Private apartments only, no dorms. Exact-date five-adult Booking.com checks on 1 Oct 2026: Terrazza Vesuvio ₹68,572/4n (80 m²), Casa Pippo ₹88,165/3n (110 m², request to book), BB Hotels Visconti ₹55,457/3n (65 m²), Titlis Resort ₹183,632/3n (47+34 m² separate units). Figures include displayed fees and remain changeable; nothing booked. Budget rounds up to ₹396,400 group accommodation. Double/sofa beds shared within the group; no promise of five separate beds.
+European transport ₹44,500/person planning allowance; full default ₹289,547/person incl. 15% buffer. Long-haul flights, visas, shopping excluded. Refundable deposits need additional card/cash capacity. Prices, space and rejected alternatives explained on site.
 
-## Customize
-- Edit every day's date, destination, activities, transport and notes; add or delete days.
-- Customize group size, budget or shift the full trip (including accommodation dates).
-- Edit each property, booking link, dates and whole-group nightly allowance.
-- Budget totals update automatically with a configurable contingency.
-- Changes save in this browser. Export/import JSON to transfer plans between friends or devices. There is no live multi-user sync.
-- Print / PDF includes the entire itinerary. Edited date gaps and missing/overlapping hotel nights raise a review notice.
+## Interactions
+Editable days, stays, costs and group size; JSON export/import, device-local persistence, print. Mode choices and quotes update budget without double counting; changing modes does not automatically reroute itinerary/map. Existing defaults migrate to private stays while preserving unrelated edits.
 
-## Original budget
-INR 259,210 per person including 15% contingency; INR 1,296,050 for five. Accommodation: 12 nights / INR 387,000 total. Other per-person allowances: food 36,000; intercity trains 24,000; local/coast transport 16,000; skiing 32,000; sights 15,000; nightlife/New Year 18,000; insurance/SIM/incidentals 7,000. International flights, visas and shopping excluded. All are estimates, not quoted prices.
-
-## Research and limitations
-Research checked 1 October 2026. Official property, resort and transport links are included in the site. YellowSquare lists rooms for five; hotel occupancy, date-specific availability and holiday prices remain unconfirmed. Dated Booking.com and Airbnb searches use the edited dates and group size. No reservations were made. Forecasts, holiday events and final train schedules must be rechecked. January 8 flight departure time is still needed.
-
-Photos from Unsplash are atmospheric rather than property photographs or a representation of current snow. Google Fonts and Unsplash require internet access; the planner itself uses plain local HTML/CSS/JavaScript. No analytics, accounts, API keys or tracking code is included. Browser edits do not change the GitHub source. To change the published default plan, edit `defaults` in app.js.
-
-## Flight and New Year update
-Depart HYD 25 Dec at 21:00 local; arrive BCN 26 Dec at 08:00 local. Complete Schengen entry there if arriving from outside Schengen, then fly to Naples on 26 Dec. Four Naples nights, 26–30 Dec. No Barcelona overnight. Depart Zurich 8 Jan night; arrive BOM 9 Jan (times pending). Paid indoor NYE party in Rome, Room26 preferred shortlist pending event confirmation. Full trip estimate INR 283,130 per person including 15% contingency and an INR 16,000 allowance for the onward European flight and arrival-day costs; long-haul flights and visa excluded. Older saved plans migrate to include the new dates.
+## Visuals and sources
+Destination photo panels, translucent cards, scroll-driven gradients, reduced-motion support. Ski photo Bradley King / Unsplash is inspiration, not the booked resort/current conditions. Photo sources and official transport/property links appear in page. ALTITUDE badge removed. Fonts/photography need internet. No analytics or API keys.
